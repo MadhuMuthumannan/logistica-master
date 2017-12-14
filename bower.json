@@ -1,0 +1,21 @@
+{
+  "name": "ngx-admin",
+  "description": "",
+  "main": "",
+  "authors": [
+    "MadhuMuthumannan <madhu.muthumannan@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-peity": "^0.0.5",
+    "ng-peity": "^0.0.1"
+  }
+}

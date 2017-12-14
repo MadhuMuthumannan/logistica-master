@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <nb-card>
+        <nb-card-header>
+          <h2>Add User</h2>
+        </nb-card-header>
+        <nb-card-body>
+          <div>
+              <form data-toggle="" novalidate="" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="row">
+                 <div class="col-md-4 col-sm-12 form-group ">
+                    <label for="name" class="control-label">Name</label>
+                    <input type="text" 
+                    class="form-control" 
+                    id="name" 
+                    [(ngModel)]="name" 
+                    name="name"
+                    #clientFirstName="ngModel" 
+                    placeholder="Name" data-error="" required="">
+                    <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a valid Name</li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-md-4 col-sm-12 form-group ">
+                  <label for="email" class="control-label">Email</label>
+                  <input type="text" 
+                  class="form-control" 
+                  id="email" 
+                  [(ngModel)]="email" 
+                  name="email"
+                  #clientFirstName="ngModel" 
+                  placeholder="Email" data-error="" required="">
+                  <div class="help-block with-errors">
+                     <ul class="list-unstyled">
+                        <li>Please enter a valid Email</li>
+                     </ul>
+                  </div>
+               </div>
+                 </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="row">  
+                    <div class="col-md-4 col-sm-12 form-group  ">
+                        <label for="phone" class="control-label">Mobile No.</label>
+                        <input type="text" 
+                        class="form-control" 
+                        id="phone" 
+                        placeholder="Mobile No" 
+                        [(ngModel)]="phone" 
+                        name="phone"
+                        data-error="Please enter a valid email address." required="">
+                        <div class="help-block with-errors">
+                           <ul class="list-unstyled">
+                              <li>Please enter a Mobile No</li>
+                           </ul>
+                        </div>
+                     </div>
+                 <div class="col-md-4 col-sm-12 form-group ">
+                    <label for="password" class="control-label">Password</label>
+                    <input type="password" 
+                    class="form-control" 
+                    id="password" 
+                    [(ngModel)]="password" 
+                    name="password"
+                    placeholder="Password" 
+                    data-error="Please enter a valid email address." required="">
+                    <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a valid Password</li>
+                       </ul>
+                    </div>
+                 </div>   
+                 </div>
+                 </div>
+                 <div class="col-md-12 col-lg-12 col-sm-12">                
+                </div>
+                 <div class="col-md-12 col-sm-12 form-group">
+                    <div class="row">
+                       <div class="col-sm-4 " style="margin-bottom:5px;">
+                          <div class="col-md-12">
+                             <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+                          </div>
+                       </div>
+                       <div class="col-sm-4">
+                          <div class="col-md-12">
+                             <button type="submit" class="btn btn-danger btn-block ">Cancel</button>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </form>
+           </div>        
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="site-footer">
+            2017 © Logistica. Powered By <a href="http://wooftec.com/" target="_blank">wooftec</a>
+         </div>
+        </nb-card-footer>
+      </nb-card>
+    </div>
+  
+  
+    <style>
+      label {
+        color: #000000 !important;
+      }
+  
+      .form-control {
+        padding: 0.35rem;
+        border: 1px solid #ced4da;
+      }
+  
+      .custom-select {
+        border-color: 2px solid #ccccb3 !important;
+      }
+  
+      .nb-theme-default .input-group-addon,
+      .nb-theme-default .form-control {
+        border: none !important;
+      }
+  
+      .help-block {
+        color: #868e96 !important;
+      }
+  
+      select {
+        width: 100%;
+      }
+    </style>

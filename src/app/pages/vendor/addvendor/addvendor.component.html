@@ -1,0 +1,268 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <nb-card>
+        <nb-card-header>
+          <h2>Add Vendor</h2> 
+        </nb-card-header>
+        <nb-card-body>
+            <div>
+                <form data-toggle="" novalidate="" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                  <div class="col-md-12 col-lg-12 col-sm-12">
+                  <div class="row">
+                   <div class="col-md-4 col-sm-12 form-group ">
+                      <label for="name" class="control-label">Name</label>
+                      <input type="text" 
+                      class="form-control" 
+                      [(ngModel)]="name" 
+                      name="agency"
+                      id="name" 
+                      placeholder="Name" data-error="" required="">
+                      <!-- <div class="help-block with-errors">
+                         <ul class="list-unstyled">
+                            <li>Please enter a valid Name</li>
+                         </ul>
+                      </div> -->
+                   </div>                  
+                   <div class="col-md-4 col-sm-12 form-group  ">
+                      <label for="mobile" class="control-label">Mobile No.</label>
+                      <input type="text" 
+                      class="form-control" 
+                      id="form-control-2" 
+                      [(ngModel)]="mobile" 
+                      name="agency"
+                      placeholder="Mobile No" 
+                      data-error="Please enter a valid email address." required="">
+                      <!-- <div class="help-block with-errors">
+                         <ul class="list-unstyled">
+                            <li>Please enter a Mobile No</li>
+                         </ul>
+                      </div> -->
+                   </div>
+                   <div class="col-md-4 col-sm-12 form-group  fixheight">
+                      <label for="email" class="control-label">Email ID</label>
+                      <input type="text" 
+                      class="form-control" 
+                      id="email" 
+                      [(ngModel)]="email" 
+                      name="email"
+                      placeholder="Email" 
+                      data-error="Please enter a valid email address." required="">
+                      <!-- <div class="help-block with-errors">
+                         <ul class="list-unstyled">
+                            <li>Please enter a Email Id</li>
+                         </ul>
+                      </div> -->
+                   </div>
+                   </div>
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-sm-12">
+                  <div class="row">  
+                   <div class="col-md-4 col-sm-12 form-group ">
+                      <label for="password" class="control-label">Password</label>
+                      <input type="password" 
+                      class="form-control" 
+                      id="password" 
+                      [(ngModel)]="password" 
+                      name="password"
+                      placeholder="Password" 
+                      data-error="Please enter a valid email address." required="">
+                      <!-- <div class="help-block with-errors">
+                         <ul class="list-unstyled">
+                            <li>Please enter a valid Password</li>
+                         </ul>
+                      </div> -->
+                   </div>
+                   <div class="col-md-4 col-sm-12 form-group fixheight">
+                      <label for="agency" class="control-label">Agency Name</label>
+                      <input type="text" 
+                      class="form-control" 
+                      id="agency" 
+                      [(ngModel)]="agency" 
+                      name="agency"
+                      placeholder="Agency Name" 
+                      data-error="Please enter a valid email address." required="">
+                      <!-- <div class="help-block with-errors">
+                         <ul class="list-unstyled">
+                            <li>Please enter a Agency Name</li>
+                         </ul>
+                      </div> -->
+                   </div>
+                  <div class="col-md-4 col-sm-12 form-group fixheight">
+                      <label for="pan" class="control-label">Pan Number</label>
+                      <input type="text" 
+                      class="form-control" 
+                      id="pan" 
+                      [(ngModel)]="pan" 
+                      name="pan"
+                      placeholder="Pan Number" 
+                      data-error="Please enter a valid email address." required="">
+                      <!-- <div class="help-block with-errors">
+                         <ul class="list-unstyled">
+                            <li>Please enter a Pan Number</li>
+                         </ul>
+                      </div> -->
+                   </div>
+                   
+                   </div>
+                   </div>
+                   <div class="col-md-12 col-lg-12 col-sm-12">
+                      <div class="row">  
+                          <div class="col-md-4 col-sm-12 form-group fixheight">
+                              <label for="gst" class="control-label">GST Number</label>
+                              <input type="text" 
+                              class="form-control" 
+                              id="gst" 
+                              [(ngModel)]="gst" 
+                              name="gst"
+                              placeholder="GST Number" 
+                              data-error="Please enter a valid email address." required="">
+                              <!-- <div class="help-block with-errors">
+                                 <ul class="list-unstyled">
+                                    <li>Please enter a GST Number</li>
+                                 </ul>
+                              </div> -->
+                           </div>
+                          <div class="col-md-4 col-sm-12 form-group fixheight">
+                              <label for="tin" class="control-label">TIN Number</label>
+                              <input type="text" 
+                              class="form-control" 
+                              id="tin" 
+                              [(ngModel)]="tin" 
+                              name="tin"
+                              placeholder="TIN Number" 
+                              data-error="Please enter a valid email address." required="">
+                              <!-- <div class="help-block with-errors">
+                                 <ul class="list-unstyled">
+                                    <li>Please enter a TIN Number</li>
+                                 </ul>
+                              </div> -->
+                           </div>
+                          <div class="col-md-4 col-sm-12 form-group fixheight">
+                              <label for="vat" class="control-label">VAT Number</label>
+                              <input type="text" 
+                              class="form-control" 
+                              id="vat" 
+                              [(ngModel)]="vat" 
+                              name="vat"
+                              placeholder="VAT Number" 
+                              data-error="Please enter a valid email address." required="">
+                              <!-- <div class="help-block with-errors">
+                                 <ul class="list-unstyled">
+                                    <li>Please enter a VAT Number</li>
+                                 </ul>
+                              </div> -->
+                           </div>
+                       
+                       </div>
+                       </div>
+                       <div class="col-md-12 col-lg-12 col-sm-12">
+                          <div class="row">  
+                              <div class="col-md-4 col-sm-12 form-group fixheight">
+                                  <label for="bank" class="control-label">Bank Account Details</label>
+                                  <select id="bank" 
+                                  class="custom-select" 
+                                  [(ngModel)]="bank" 
+                                  name="bank" 
+                                  data-error="This field is required." required="">
+                                     <option value="" selected="selected">Choose counrty</option>
+                                     <option value="1">icici bank</option>
+                                     <option value="2">Indusind bank</option>
+                                     <option value="3">Inidan bank</option>
+                                  </select>
+                                  <!-- <div class="help-block with-errors">
+                                     <ul class="list-unstyled">
+                                        <li>Please enter a Bank Details</li>
+                                     </ul>
+                                  </div> -->
+                               </div>
+                               <div class="col-md-4 col-sm-12 form-group form-group ">
+                                  <label for="address" class="control-label">Address</label>
+                                  <textarea id="address"
+                                  [(ngModel)]="address" 
+                                  name="address" 
+                                  class="form-control" 
+                                  rows="3" 
+                                  data-error="This field is required." required=""></textarea>
+                                  <!-- <div class="help-block with-errors">
+                                     <ul class="list-unstyled">
+                                        <li>Please enter a Address</li>
+                                     </ul>
+                                  </div> -->
+                               </div>
+                              <div class="col-md-4 col-sm-12 form-group fixheight">
+                                  <label for="status" class="control-label">Status</label><br>
+                                  <select id="status" 
+                                  class="custom-select" 
+                                  [(ngModel)]="status" 
+                                  name="status"
+                                  data-error="This field is required." required="">
+                                     <option value="" selected="selected">Choose Active / Deactive</option>
+                                     <option value="1">Active</option>
+                                     <option value="2">Deactive</option>
+                                  </select>
+                                  <!-- <div class="help-block with-errors">
+                                     <ul class="list-unstyled">
+                                        <li>Please enter a Active / Deactive</li>
+                                     </ul>
+                                  </div> -->
+                               </div>
+                           
+                           </div>
+                           </div>                   
+                   <div class="col-md-12 col-sm-12 form-group">
+                      <div class="row">
+                         <div class="col-sm-6 " style="margin-bottom:5px;">
+                            <div class="col-md-12">
+                               <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+                            </div>
+                         </div>
+                         <div class="col-sm-6">
+                            <div class="col-md-12">
+                               <button type="submit" class="btn btn-danger btn-block ">Cancel</button>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </form>
+             </div>        
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="site-footer">
+            2017 © Logistica. Powered By <a href="http://wooftec.com/" target="_blank">wooftec</a>
+         </div>
+        </nb-card-footer>
+      </nb-card>    
+  </div>
+  
+  
+  <style>
+    label {
+      color: #000000 !important;
+    }
+
+    .form-control {
+      padding: 0.35rem;
+      border: 1px solid #ced4da;
+    }
+
+    .form-group{
+    padding-bottom: 20px;
+  }
+  
+    .custom-select {
+      border-color: 2px solid #ccccb3 !important;
+    }
+
+    .nb-theme-default .input-group-addon,
+    .nb-theme-default .form-control {
+      border: none !important;
+    }
+
+    .help-block {
+      color: #868e96 !important;
+    }
+
+    select {
+      width: 100%;
+    }
+  </style>

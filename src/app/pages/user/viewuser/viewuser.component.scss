@@ -1,0 +1,15 @@
+.nb-theme-default ng2-smart-table table tr th, .nb-theme-default ng2-smart-table table tr td{
+    position: relative !important;
+    padding: 0.5rem 1rem !important;
+    border: 1px solid #ebeef2 !important;
+    vertical-align: middle !important;
+}
+
+.nb-theme-default ng2-smart-table .ng2-smart-actions a.ng2-smart-action{
+    font-size: 1rem !important;
+}
+
+.nb-theme-default ng2-smart-table table tr td{
+    line-height: 1 !important;
+    font-size: 0.85rem !important;  
+}

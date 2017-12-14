@@ -1,0 +1,224 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 col-sm-12">
+    <nb-card>
+      <nb-card-header>
+       
+            <h2>Edit User</h2>
+         
+      </nb-card-header>
+      <nb-card-body>
+        <div>
+            <form>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+               <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="name" class="control-label">Name</label>
+                  <input type="text" 
+                  class="form-control" 
+                  id="name" 
+                  [(ngModel)]="data.name" 
+                  name="name"
+                  placeholder="Name" data-error="" required="">
+                  <div *ngIf="error.name" class="help-block with-errors">
+                     <ul class="list-unstyled">
+                        <li style="color: red">Name should be minimum of 3 characters</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-12 form-group padding">
+                <label for="email" class="control-label">Email</label>
+                <input type="text" 
+                class="form-control" 
+                id="email" 
+                [(ngModel)]="data.email" 
+                name="email"
+                #clientFirstName="ngModel" 
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                placeholder="Email" data-error="" required="">
+                <div *ngIf="error.email" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                       <li style="color: red">Please enter a valid Email</li>
+                    </ul>
+                 </div>
+             </div>
+             <div class="col-md-4 col-sm-12 form-group padding">
+                <label for="password" class="control-label">Password</label>
+                <input type="password" 
+                class="form-control" 
+                id="password" 
+                [(ngModel)]="data.password" 
+                name="password"
+                placeholder="Password" 
+                data-error="Please enter a valid email address." required="">
+                  <div *ngIf="error.password" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                       <li style="color: red">Please enter a valid Password(min 1 character 1 special character and 1 number)</li>
+                    </ul>
+                 </div>
+             </div>
+               </div>
+              </div>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">  
+                  <div class="col-md-4 col-sm-12 form-group padding ">
+                      <label for="phone" class="control-label">phone No.</label>
+                      <input type="text" 
+                      class="form-control" 
+                      id="phone" 
+                      placeholder="phone No" 
+                      [(ngModel)]="data.phone" 
+                      name="phone"
+                      minlength="10"
+                      maxlength="10"
+                      data-error="Please enter a valid email address." required="">
+                      <div *ngIf="error.password" class="help-block with-errors">
+                          <ul class="list-unstyled">
+                             <li style="color: red">Please enter a valid mobile number</li>
+                          </ul>
+                       </div>
+                   </div>
+                   <div class="col-md-4 col-sm-12 form-group padding">
+                      <label for="country" class="control-label">Country</label>                  
+                      <ng-select [options]="countryList" [(ngModel)]="data.country" 
+                      name="country" id="country" >
+                      </ng-select>
+                      
+                      <div *ngIf="error.country" class="help-block with-errors">
+                         <ul class="list-unstyled">
+                            <li style="color: red">Country required</li>
+                         </ul>
+                      </div>
+                   </div>
+                   <div class="col-md-4 col-sm-12 form-group padding">
+                      <label for="city" class="control-label">City</label>                  
+                      <ng-select [options]="cityList" [(ngModel)]="data.city" 
+                      name="city" id="city" >
+                      </ng-select>
+                      
+                      <div *ngIf="error.city" class="help-block with-errors">
+                         <ul class="list-unstyled"> 
+                            <li style="color: red">City required</li>
+                         </ul>
+                      </div>
+                   </div> 
+               </div>
+               </div>
+               <div class="col-md-12 col-lg-12 col-sm-12">
+               <div class="row">
+               <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="status" class="control-label">Status</label><br>
+                  
+                  <div *ngIf="error.status" class="help-block with-errors">
+                     <ul class="list-unstyled">
+                        <li style="color: red">Status required</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-12 form-group paddingfixheight">
+                  <label for="gender" class="control-label">Gender</label>
+                   
+                  <select id="gender"  [(ngModel)]="data.gender" 
+                  name="gender"
+                  class="custom-select" data-error="This field is required." required="">
+                     <option value="" selected="selected">Choose Gender</option>             
+                     <option value="1">Male</option>
+                     <option value="2">Female</option>
+                     <option value="3">Others</option>
+                  </select>
+                  <div *ngIf="error.gender" class="help-block with-errors">
+                     <ul class="list-unstyled">
+                        <li style="color: red">Gender required</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-12 form-group padding ">
+                  <label for="dateofbirth" class="control-label">Date of Birth</label>
+                  <my-date-picker name="dateofbirth" [options]="myDatePickerOptions"
+                  [(ngModel)]="data.dateofbirth" id="dateofbirth" required></my-date-picker>
+                  <div *ngIf="error.dateofbirth" class="help-block with-errors">
+                     <ul class="list-unstyled">
+                        <li style="color: red">Pick your DOB</li>
+                     </ul>
+                  </div>
+               </div>
+              </div>
+              </div>
+               <div class="col-md-12 col-sm-12 form-group">
+                  <div class="row">
+                     <div class="col-sm-6 " style="margin-bottom:5px;">
+                        <div class="col-md-12">
+                           <button (click)="addUser()" type="submit" class="btn btn-primary btn-block ">Submit</button>
+                        </div>
+                     </div>
+                     <div class="col-sm-6">
+                        <div class="col-md-12">
+                           <button type="submit" class="btn btn-danger btn-block ">Cancel</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>        
+      </nb-card-body>
+      <nb-card-footer>
+        <div class="site-footer">
+          2017 © Logistica. Powered By <a href="http://wooftec.com/" target="_blank">wooftec</a>
+       </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+
+  <style>
+    label {
+      color: #000000 !important;
+    }
+
+    tr td, table, .table td{
+      vertical-align: middle !important;
+    }
+    .form-control {
+      padding: 0.35rem;
+      border: 1px solid #ced4da;
+    }
+
+    .custom-select {
+      border-color: 2px solid #ccccb3 !important;
+    }
+
+    .nb-theme-default .input-group-addon,
+    .nb-theme-default .form-control {
+      border: none !important;
+    }
+
+    .help-block .with-errors{
+      color: red !important;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    .padding{
+      padding-bottom: 20px;
+    }
+
+    #grayOutDiv
+{
+    background-color: #333;
+    opacity: 0.7;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.flash-message
+{
+    z-index: 10000;
+    position: relative;
+}
+  </style>

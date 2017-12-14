@@ -1,0 +1,347 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 col-sm-12">
+    <nb-card>
+      <nb-card-header>
+        <h2>Edit Driver</h2>
+      </nb-card-header>
+      <nb-card-body>
+        <div>
+          <form>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <h4>Choose Profile Photo from your device</h4>
+                  <br>
+                  <input type="file" accept="image/*" (change)="changeListener($event)">
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <h1>Id: 3</h1>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <h1>Age: 30</h1>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group ">
+                  <label for="name" class="control-label">Name</label>
+                  <input type="text" class="form-control" [(ngModel)]="data.name" name="name" id="name" placeholder="Name" data-error="" required="">
+                  <div *ngIf="error.name" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Name should be minimum of 3 characters</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group  ">
+                  <label for="location" class="control-label">Mobile No.</label>
+                  <input type="text" class="form-control" id="location" [(ngModel)]="data.phone" name="phone" placeholder="Mobile No" data-error="Please enter a valid email address."
+                    required="">
+                  <div *ngIf="error.location" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Location</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group  fixheight">
+                  <!-- <label for="email" class="control-label">Email ID</label>
+                  <input type="text" class="form-control" id="email" [(ngModel)]="data.email" name="email" placeholder="Email" data-error="Please enter a valid email address."
+                    required="">
+                  <div *ngIf="error.email" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Please enter a valid Email</li>
+                    </ul>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="country" class="control-label">Country</label>
+                  <!-- <ng-select [options]="countryList" [(ngModel)]="data.country" name="country" id="country">
+                  </ng-select> -->
+                  <select name="select" id="selectedCountry" [(ngModel)]="selectedCountry">
+                    <option *ngFor="let item of selectedCountry" [selected]="item.value==0" [disabled]="item.value==0">{{item.label}}</option>
+                  </select>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="city" class="control-label">City</label>
+                  <select name="select" id="selectedCity" [(ngModel)]="selectedCity">
+                    <option *ngFor="let item of selectedCity" [selected]="item.value==0">{{item.label}}</option>
+                  </select>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group ">
+                  <label for="password" class="control-label">Change Password</label>
+                  <input type="password" class="form-control" id="password" [(ngModel)]="data.password" name="password" placeholder="Password"
+                    data-error="Please enter a valid email address." required="">
+                  <div *ngIf="error.password" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Please enter a valid Password(min 1 character 1 special character and 1 number)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="license" class="control-label">License Number</label>
+                  <input type="text" class="form-control" id="license" [(ngModel)]="data.license" name="license" placeholder="license Name"
+                    data-error="Please enter a valid email address." required="">
+                  <div *ngIf="error.license" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">License number required</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="visibility" class="control-label">Driver Visibilty</label>
+                  <select id="visibility" [(ngModel)]="data.visibility" name="visibility" class="custom-select" data-error="This field is required."
+                    required="">
+                    <option value="" selected="selected">Choose Visibilty</option>
+                    <option value="1">Visible</option>
+                    <option value="0">Invisible</option>
+                  </select>
+                  <div *ngIf="error.visibility" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Choose visibility</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group paddingfixheight">
+                  <label for="gender" class="control-label">Gender</label>
+
+                  <select id="gender" [(ngModel)]="data.genderr" name="gender" class="custom-select" data-error="This field is required." required="">
+                    <option value="" selected="selected">Choose Gender</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Others</option>
+                  </select>
+                  <div *ngIf="error.gender" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Gender required</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="aadhar" class="control-label">Aadhar Number</label>
+                  <input type="text" class="form-control" id="aadhar" [(ngModel)]="data.aadhar" name="gst" placeholder="aadhar Amount" data-error="Please enter a valid email address."
+                    required="">
+                  <div *ngIf="error.aadhar" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Wallet amount required</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="dob" class="control-label">DOB</label>
+                  <my-date-picker name="dateofbirth" [options]="myDatePickerOptions" [(ngModel)]="data.dob" id="dateofbirth" required></my-date-picker>
+                  <div *ngIf="error.dob" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Pick your DOB</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="document" class="control-label">License NO Document</label>
+                  <input type="text" class="form-control" id="document" [(ngModel)]="data.document" name="document" placeholder="License document"
+                    required="">
+                  <div *ngIf="error.document" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">License document required</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group form-group ">
+                  <label for="address" class="control-label">Address</label>
+                  <textarea id="address" [(ngModel)]="data.address" name="address" class="form-control" rows="3" data-error="This field is required."
+                    required=""></textarea>
+                  <div *ngIf="error.address" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Address required</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="status" class="control-label">Status</label>
+                  <br>
+                  <br>
+                  <label class="switch">
+                    <input type="checkbox" [(ngModel)]="data.status" name="status" (change)="ifChecked($event)">
+                    <span class="slider round"></span>
+                  </label>
+                  <div *ngIf="error.status" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Status required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group ">
+                  <label for="vendor" class="control-label">Vendor</label>
+                  <input type="text" class="form-control" [(ngModel)]="data.vendor" name="vendor" id="vendor" placeholder="vendor" data-error="" required="">
+                  <div *ngIf="error.vendor" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Name should be minimum of 3 characters</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group  ">
+                  <label for="mobile" class="control-label">Mobile No.</label>
+                  <input type="text" class="form-control" id="mobile" [(ngModel)]="data.mobile" name="mobile" placeholder="Mobile No" data-error="Please enter a valid Mobile number."
+                    required="">
+                  <div *ngIf="error.password" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Please enter a valid mobile number</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group  fixheight">
+                  <label for="email" class="control-label">Email ID</label>
+                  <input type="text" class="form-control" id="email" [(ngModel)]="data.email" name="email" placeholder="Email" data-error="Please enter a valid email address."
+                    required="">
+                  <div *ngIf="error.email" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Please enter a valid Email</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 form-group">
+              <div class="row">
+                <div class="col-sm-6 " style="margin-bottom:5px;">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary btn-block" (click)="editUser()">Submit</button>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-danger btn-block ">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <div class="site-footer">
+          2017 © Logistica. Powered By
+          <a href="http://wooftec.com/" target="_blank">wooftec</a>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+
+  <style>
+    label {
+      color: #000000 !important;
+    }
+
+    .form-control {
+      padding: 0.35rem;
+      border: 1px solid #ced4da;
+    }
+
+    .custom-select {
+      border-color: 2px solid #ccccb3 !important;
+    }
+
+    .nb-theme-default .input-group-addon,
+    .nb-theme-default .form-control {
+      border: none !important;
+    }
+
+    .help-block {
+      color: #868e96 !important;
+    }
+
+    .form-group {
+      padding-bottom: 20px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      display: none;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+    /* Rounded sliders */
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    select {
+      border-radius: 0.35rem;
+      height: 2.3rem;
+      border: 1px solid #ced4da;
+      width: 100%;
+    }
+
+  </style>
+

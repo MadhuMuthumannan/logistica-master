@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <nb-card>
+        <nb-card-header>
+          <h2>Add Trip</h2>
+        </nb-card-header>
+        <nb-card-body>
+          <div>
+            <form data-toggle="" novalidate="">
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="row">
+                  <div class="col-md-4 col-sm-12 form-group fixheight">
+                    <label for="form-control-2" class="control-label">Driver Location</label>
+                    <input type="text" class="form-control" id="form-control-2" placeholder="Pickup Point" data-error="" data-toggle="modal" data-target="#myModal3" required="">
+                    <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Driver Location</li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="form-control-2" class="control-label">User Location</label>
+                  <input type="text" class="form-control" id="form-control-2" placeholder="Pickup Point" data-error="" data-toggle="modal" data-target="#myModal4" required="">
+                  <div class="help-block with-errors">
+                     <ul class="list-unstyled">
+                        <li>Please enter a User Location</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-12 form-group fixheight">
+                <label for="form-control-2" class="control-label">Trip Location</label>
+                <input type="text" class="form-control" id="form-control-2" placeholder="Pickup Point" data-error="" data-toggle="modal" data-target="#myModal5" required="">
+                <div class="help-block with-errors">
+                   <ul class="list-unstyled">
+                      <li>Please enter a Trip Location</li>
+                   </ul>
+                </div>
+             </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="row">
+                  <div class="col-md-4 col-sm-12 form-group fixheight">
+                    <label for="form-control-2" class="control-label">Start Time</label>
+                    <input type="text" class="form-control" id="form-control-2" placeholder="Start Time" data-error="" required="">
+                    <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Start Time</li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-md-4 col-sm-12 form-group fixheight">
+                    <label for="form-control-2" class="control-label">End Time</label>
+                    <input type="text" class="form-control" id="form-control-2" placeholder="End Time" data-error="Please enter a valid email address." required="">
+                    <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a End time</li>
+                       </ul>
+                    </div>
+                 </div>
+                 
+                   <div class="col-md-4 col-sm-12 form-group fixheight">
+                    <label for="form-control-3" class="control-label">Status</label>
+                    <select id="form-control-3" class="custom-select" data-error="This field is required." required="">
+                       <option value="1">Active</option>
+                       <option value="2">Deactive</option>
+                    </select>
+                    <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Helpers </li>
+                       </ul>
+                    </div>
+                 </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="row">
+                  <div class="col-md-4 col-sm-12 form-group fixheight">
+                    <label for="form-control-2" class="control-label">Request ID</label>
+                    <input type="text" class="form-control" id="form-control-2" placeholder="Request ID" data-error="Please enter a valid email address." required="">
+                    <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Request ID</li>
+                       </ul>
+                    </div>
+                 </div>
+                 </div>
+                 </div>
+              <div class="col-md-12 col-sm-12 form-group">
+                <div class="row">
+                  <div class="col-sm-6 " style="margin-bottom:5px;">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-danger btn-block ">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="site-footer">
+            2017 © Logistica. Powered By <a href="http://wooftec.com/" target="_blank">wooftec</a>
+         </div>
+        </nb-card-footer>
+      </nb-card>
+    </div>
+  
+  
+    <style>
+      label {
+        color: #000000 !important;
+      }
+  
+      .form-control {
+        padding: 0.35rem;
+        border: 1px solid #ced4da;
+      }
+  
+      .custom-select {
+        border-color: 2px solid #ccccb3 !important;
+      }
+  
+      .nb-theme-default .input-group-addon,
+      .nb-theme-default .form-control {
+        border: none !important;
+      }
+  
+      .help-block {
+        color: #868e96 !important;
+      }
+  
+      select {
+        width: 100%;
+      }
+    </style>
