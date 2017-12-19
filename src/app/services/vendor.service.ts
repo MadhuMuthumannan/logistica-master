@@ -31,8 +31,7 @@ export class VendorService {
   //     "count" : "10",
   //     "search" : ""
   //   }
-  //   console.log("Get vendors service called");
-  //   this.http.post('http://thelogistica.in:4000/vendorlist',data)
+  //   console.log("Get vendors service called");  //   this.http.post('http://thelogistica.in:4000/vendorlist',data)
   //   .subscribe(data => {
   //     console.log("Response");
   //     console.log(data);
@@ -46,6 +45,22 @@ export class VendorService {
           "search" : ""
         }
     return this.http.post('http://thelogistica.in:4000/vendorlist', data)
+      .map((vendor: Response) => vendor)
+  }
+
+  getVendor(id: any): Observable<any>{
+    console.log("Get vendor service called"); 
+    let query = "?id="+id;   
+    console.log('http://thelogistica.in:4000/vendorprofile'+query);    
+    return this.http.get('http://thelogistica.in:4000/vendorprofile'+query)
+      .map((vendor: Response) => vendor)
+  }
+
+  updateImage(data: ImageData): Observable<any>{
+    console.log("Update image service called"); 
+    console.log(data);
+    console.log('http://thelogistica.in:4000/updateimage',data);    
+    return this.http.post('http://thelogistica.in:4000/updateimage',data)
       .map((vendor: Response) => vendor)
   }
 }

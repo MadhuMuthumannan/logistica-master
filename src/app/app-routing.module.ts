@@ -9,6 +9,8 @@ import {
   NbResetPasswordComponent,
 } from '@nebular/auth';
 import { EdituserComponent } from './pages/user/edituser/edituser.component';
+import { EditvendorComponent } from './pages/vendor/editvendor/editvendor.component';
+import { EditdriverComponent } from './pages/driver/editdriver/editdriver.component';
 import { PagesComponent } from "./pages/pages.component";
 
 const routes: Routes = [
@@ -43,10 +45,16 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: 'edituser/:id', component: EdituserComponent },
-  //{ path: 'edituser/:id', redirectTo: 'pages/user/edituser/:id' }, 
-  //{ path: 'pages/user/edituser/:id', component: EdituserComponent },
+  // { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  // { path: 'edituser/:id', component: EdituserComponent },
+  { path: 'edituser/:id', redirectTo: 'pages/user/edituser/:id' }, 
+  { path: 'pages/user/edituser/:id', component: EdituserComponent },
+  { path: 'editvendor/:id', redirectTo: 'pages/vendor/editvendor/:id' }, 
+  { path: 'pages/vendor/editvendor/:id', component: EditvendorComponent },
+  { path: 'editdriver/:id', redirectTo: 'pages/driver/editdriver/:id' }, 
+  { path: 'pages/driver/editdriver/:id', component: EditdriverComponent },
+  { path: 'transactiondetails/:id', redirectTo: 'pages/transaction/transactiondetails/:id' }, 
+  { path: 'pages/transaction/transactiondetails/:id', component: EditdriverComponent },
   { path: '**', redirectTo: 'pages' },
 ];
 

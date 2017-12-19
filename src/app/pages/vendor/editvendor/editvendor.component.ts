@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MyDatePickerModule } from 'mydatepicker';
-import {Md5} from 'ts-md5/dist/md5';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import { UUID } from 'angular2-uuid';
+import 'rxjs/add/operator/toPromise';
+import { ExtraOptions, RouterModule, Routes, Params, Router, ActivatedRoute} from '@angular/router';
 import { VendorService} from '../../../services/vendor.service';
 @Component({
   selector: 'app-editvendor',
@@ -10,27 +14,9 @@ import { VendorService} from '../../../services/vendor.service';
 })
 export class EditvendorComponent implements OnInit {
   public b64:any;
-  
+  private imageData:any = [];
   public id: string;
-  private data:any = {
-    "name":'',
-    "gender":'1',
-    "phone":'',
-    "password":'',
-    "email":'',
-    "dob":'',
-    "city":'1',
-    "agency":'',
-    "pan":'',
-    "gst":'',
-    "tin":'',
-    "vat":'',
-    "bank":'',
-    "ifsc":'',
-    "country":'1',
-    "uuid" : "2468789",
-    "system_info" : "bhjbc"
-  }
+  private data:any = [];
   private error : any ={
     "name":false,
     "gender":false,
@@ -204,11 +190,9 @@ export class EditvendorComponent implements OnInit {
   return flag;
   }
 
-  editUser(){  
-    console.log("add user function");
-    console.log("gender:" +this.data.genderr);
-    console.log("dateofbirth:" +this.data.dob);
-    console.log("bank:" +this.data.bank);
+  updateVendor(){  
+    console.log("update vendor function");
+    console.log(this.data);
     if(this.checkValidation())
     {
       // this.data.city = "1";
@@ -233,13 +217,24 @@ export class EditvendorComponent implements OnInit {
     myReader.onloadend = (e) => {
       this.b64 = myReader.result;
       console.log(this.b64);
+      this.imageData = {id: this.id, file: this.b64}
+      this.VendorService.updateImage(this.imageData).subscribe(image => { 
+        console.log(image);      
+        this.data=image;
+      });
     }
     myReader.readAsDataURL(file);  
 
   }
-  constructor(public VendorService: VendorService) { }
+  constructor(public VendorService: VendorService, public router:Router ,public route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+    this.VendorService.getVendor(this.id).subscribe(vendor => { 
+      console.log(vendor);      
+      this.data=vendor;
+      this.data.status=vendor.status.title;      
+    });
     // this.VendorService.getVendors().subscribe(user => { 
     //   this.data=user.response;
       
@@ -257,25 +252,25 @@ export class EditvendorComponent implements OnInit {
       
     //   console.log(this.data);
     // });
-    this.data = {
-      "name":"madhu",
-      "gender":"Male",
-      "phone":"1212121212",
-      "password":"adfasdf343@#$",
-      "email":"madhu@gmail.com",
-      "dob":"",
-      "city":"super",
-      "agency":"super",
-      "pan":"super",
-      "gst":"super",
-      "tin":"super",
-      "vat":"super",
-      "bank":"super",
-      "ifsc":"super",
-      "country":"super",
-      "uuid" : "false",
-      "system_info" : "false",
-    }
+    // this.data = {
+    //   "name":"madhu",
+    //   "gender":"Male",
+    //   "phone":"1212121212",
+    //   "password":"adfasdf343@#$",
+    //   "email":"madhu@gmail.com",
+    //   "dob":"",
+    //   "city":"super",
+    //   "agency":"super",
+    //   "pan":"super",
+    //   "gst":"super",
+    //   "tin":"super",
+    //   "vat":"super",
+    //   "bank":"super",
+    //   "ifsc":"super",
+    //   "country":"super",
+    //   "uuid" : "false",
+    //   "system_info" : "false",
+    // }
   }
 
 }

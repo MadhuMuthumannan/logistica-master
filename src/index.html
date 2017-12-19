@@ -2,10 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ngx-admin Demo Application</title>
+  <title>Logistica Admin</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
@@ -22,4 +26,10 @@
   </div>
 
 </body>
+<script type="text/javascript">
+  $('.date-own').datepicker({
+     minViewMode: 2,
+     format: 'yyyy'
+   });
+</script>
 </html>

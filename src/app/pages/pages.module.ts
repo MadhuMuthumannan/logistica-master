@@ -37,6 +37,10 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditvendorComponent } from './vendor/editvendor/editvendor.component';
 import { EditdriverComponent } from './driver/editdriver/editdriver.component';
+import { VehicletypeComponent } from './vehicle/vehicletype/vehicletype.component';
+import { TransactionviewComponent } from './transaction/transactionview/transactionview.component';
+import { TransactionlistviewComponent } from './transaction/transactionlistview/transactionlistview.component';
+import { SessionComponent } from './session/session/session.component';
 
 //import { UserComponent } from './user/user.component';
 
@@ -87,7 +91,11 @@ const PAGES_COMPONENTS = [
     ViewearningsComponent,
     ViewnotificationsComponent,
     EditvendorComponent,
-    EditdriverComponent,     
+    EditdriverComponent,
+    VehicletypeComponent,
+    TransactionviewComponent,
+    TransactionlistviewComponent,
+    SessionComponent,     
   ],
 })
 export class PagesModule {

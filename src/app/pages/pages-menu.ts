@@ -20,13 +20,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Add User',
         link: '/pages/user/adduser',
-      }, {
+      },
+      {
         title: 'View User',
         link: '/pages/user/viewuser',
-      },{
-        title: 'Edit User',
-        link: '/pages/user/edituser',
       },
+      // {
+      //   title: 'Edit User',
+      //   link: '/pages/user/edituser/:id',
+      // },
     ]
    },
    {
@@ -41,10 +43,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
           title: 'View Vendor',
           link: '/pages/vendor/viewvendor',
         },
-        {
-          title: 'Edit Vendor',
-          link: '/pages/vendor/editvendor',
-        },
+        // {
+        //   title: 'Edit Vendor',
+        //   link: '/pages/vendor/editvendor',
+        // },
       ],
     },
     {
@@ -72,10 +74,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         }, {
           title: 'View Driver',
           link: '/pages/driver/viewdriver',
-        },{
-          title: 'Edit Driver',
-          link: '/pages/driver/editdriver',
-        },
+        },        
       ],
     },
     {
@@ -89,6 +88,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
         }, {
           title: 'View Vehicle',
           link: '/pages/vehicle/viewvehicle',
+        }, {
+          title: 'Vehicle Type',
+          link: '/pages/vehicle/vehicletype',
         },
       ],
     },
@@ -132,6 +134,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
           title: 'View Trip',
           link: '/pages/trip/viewtrip',
         },
+      ],
+    },
+    {
+      title: 'Transaction Management',
+      icon: 'nb-arrow-retweet',
+      link: '/pages/transaction',
+      children: [{
+          title: 'Transaction List View',
+          link: '/pages/transaction/transactionlistview',
+        },
+      ],
+    },
+    {
+      title: 'Session Management',
+      icon: 'nb-arrow-retweet',
+      link: '/pages/session',
+      children: [
+        {
+          title: 'Session',
+          link: '/pages/session/session',
+        }
       ],
     },
     {

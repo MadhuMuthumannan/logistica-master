@@ -16,6 +16,7 @@ import { AdddriverComponent } from './driver/adddriver/adddriver.component';
 import { ViewdriverComponent } from './driver/viewdriver/viewdriver.component';
 import { AddvehicleComponent } from './vehicle/addvehicle/addvehicle.component';
 import { ViewvehicleComponent } from './vehicle/viewvehicle/viewvehicle.component';
+import { VehicletypeComponent } from './vehicle/vehicletype/vehicletype.component';
 import { AddquotationComponent } from './quotation/addquotation/addquotation.component';
 import { ViewquotationComponent } from './quotation/viewquotation/viewquotation.component';
 import { AddorderComponent } from './order/addorder/addorder.component';
@@ -29,6 +30,9 @@ import { ViewticketComponent } from './ticket/viewticket/viewticket.component';
 import { AddearningsComponent } from './earnings/addearnings/addearnings.component';
 import { ViewearningsComponent } from './earnings/viewearnings/viewearnings.component';
 import { ViewnotificationsComponent } from './notifications/viewnotifications/viewnotifications.component';
+import { TransactionviewComponent } from './transaction/transactionview/transactionview.component';
+import { TransactionlistviewComponent } from './transaction/transactionlistview/transactionlistview.component';
+import { SessionComponent } from './session/session/session.component';
 
 
 const routes: Routes = [{
@@ -47,7 +51,7 @@ const routes: Routes = [{
     component: ViewuserComponent,
   },
   {
-    path: 'user/edituser',
+    path: 'user/edituser/:id',
     component: EdituserComponent,
   },
   {
@@ -59,7 +63,7 @@ const routes: Routes = [{
     component: ViewvendorComponent,
    },
    {
-    path: 'vendor/editvendor',
+    path: 'vendor/editvendor/:id',
     component: EditvendorComponent,
    },
    {
@@ -83,6 +87,10 @@ const routes: Routes = [{
     component: ViewdriverComponent,
   },
   {
+    path: 'driver/editdriver/:id',
+    component: EditdriverComponent,
+  },  
+  {
     path: 'driver/editdriver',
     component:EditdriverComponent,
   },
@@ -93,6 +101,10 @@ const routes: Routes = [{
   {
     path: 'vehicle/viewvehicle',
     component: ViewvehicleComponent,
+  },
+  {
+    path: 'vehicle/vehicletype',
+    component: VehicletypeComponent,
   },
   {
     path: 'quotation/addquotation',
@@ -109,6 +121,18 @@ const routes: Routes = [{
   {
     path: 'order/vieworder',
     component: VieworderComponent,
+  },
+  {
+    path: 'transaction/transactiondetails/:id',
+    component: TransactionviewComponent,
+  },
+  {
+    path: 'session/session',
+    component: SessionComponent,
+  },
+  {
+    path: 'transaction/transactionlistview',
+    component: TransactionlistviewComponent,
   },
   {
     path: 'trip/addtrip',

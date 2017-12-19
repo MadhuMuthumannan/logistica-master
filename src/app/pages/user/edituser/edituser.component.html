@@ -9,6 +9,14 @@
       <nb-card-body>
         <div>
           <form>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                  <div class="row">
+                    <h3>Vendor Image:</h3>                    
+                  </div>
+                  <div>
+                      <img src="{{data.image_id.image}}" alt="" width="120px" height="120px">                 
+                  </div>
+                </div><br><br>
             <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="row">
                 <div class="col-md-4 col-sm-12">
@@ -55,18 +63,17 @@
               <div class="row">
                 <div class="col-md-4 col-sm-12 form-group padding">
                   <label for="id" class="control-label">Id</label>
-                  <input type="text" class="form-control" id="id" [(ngModel)]="data.id" name="id" placeholder="Name" data-error="" required="">
+                  <h5>{{data.id}}</h5>
 
                 </div>
                 <div class="col-md-4 col-sm-12 form-group padding">
                   <label for="email" class="control-label">Age</label>
-                  <input type="text" class="form-control" id="age" [(ngModel)]="age" name="age" #clientFirstName="ngModel" placeholder="Age"
-                    data-error="" required="">
+                  <h5>{{currentAge}}</h5>
 
                 </div>
                 <div class="col-md-4 col-sm-12 form-group padding">
                   <label for="wallet" class="control-label">Wallet Amount</label>
-                  <input type="wallet" class="form-control" id="wallet" [(ngModel)]="wallet" name="wallet" placeholder="Password" data-error="Please enter a valid email address."
+                  <input type="wallet" class="form-control" id="wallet" [(ngModel)]="data.wallet" name="wallet" placeholder="Password" data-error="Please enter a valid email address."
                     required="">
 
                 </div>
@@ -76,7 +83,7 @@
               <div class="row">
                 <div class="col-md-4 col-sm-12 form-group padding ">
                   <label for="phone" class="control-label">Mobile</label>
-                  <input type="text" class="form-control" id="phone" placeholder="phone No" [(ngModel)]="data.mobile" name="phone" minlength="10"
+                  <input type="text" class="form-control" id="phone" placeholder="phone No" [(ngModel)]="data.mobile" name="mobile" minlength="10"
                     maxlength="10" data-error="Please enter a valid email address." required="">
 
                 </div>
@@ -84,14 +91,14 @@
                   <label for="country" class="control-label">Country</label>
                   <!-- <ng-select [options]="countryList" [(ngModel)]="data.country" name="country" id="country">
                   </ng-select> -->
-                  <select name="select" id="selectedCountry" [(ngModel)]="selectedCountry">
-                    <option *ngFor="let item of selectedCountry" [selected]="item.value==0" [disabled]="item.value==0">{{item.label}}</option>
+                  <select name="country" id="country" [(ngModel)]="data.country">
+                    <option *ngFor="let item of country" value={{item.value}}>{{item.label}}</option>
                   </select>
                 </div>
                 <div class="col-md-4 col-sm-12 form-group padding">
                   <label for="city" class="control-label">City</label>
-                  <select name="select" id="selectedCity" [(ngModel)]="selectedCity">
-                    <option *ngFor="let item of selectedCity" [selected]="item.value==0">{{item.label}}</option>
+                  <select name="city" id="city" [(ngModel)]="data.city">
+                    <option *ngFor="let item of city" value={{item.value}}>{{item.label}}</option>
                   </select>
 
 
@@ -103,27 +110,28 @@
                 <div class="col-md-4 col-sm-12 form-group padding">
                   <label for="status" class="control-label">Status</label>
                   <br>
-                  <label class="switch">
-                    <input type="checkbox" [(ngModel)]="status" (change)="ifChecked($event)">
+                  <input type="text" class="form-control" [(ngModel)]="data.status" name="status" placeholder="status" data-error="" required="">
+                  <!-- <label class="switch">
+                    <input type="checkbox" [(ngModel)]="data.status" name="status" (change)="ifChecked($event)">
                     <span class="slider round"></span>
-                  </label>
+                  </label> -->
 
                 </div>
                 <div class="col-md-4 col-sm-12 form-group paddingfixheight">
                   <label for="gender" class="control-label">Gender</label>
 
-                  <select id="gender" [(ngModel)]="genderr" name="gender" class="custom-select" data-error="This field is required." required="">
+                  <select id="genderr" [(ngModel)]="genderr" name="genderr" class="custom-select" data-error="This field is required." required="">
                     <option value="" selected="selected">Choose Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Others</option>
+                    <option value={{data.gender}}>Male</option>
+                    <option value={{data.gender}}>Female</option>
+                    <option value={{data.gender}}>Others</option>
                   </select>
 
                 </div>
                 <div class="col-md-4 col-sm-12 form-group padding ">
-                  <label for="dateofbirth" class="control-label">Date of Birth</label>
-                  <my-date-picker name="dateofbirth" [options]="myDatePickerOptions" [(ngModel)]="model" id="dateofbirth" required></my-date-picker>
-
+                  <label for="dob" class="control-label">Date of Birth</label>
+                  <!-- <my-date-picker name="dob" [options]="myDatePickerOptions" [(ngModel)]="data.dob" id="dob" required></my-date-picker> -->
+                  <input type="text" class="form-control" [(ngModel)]="data.dob" name="dob" placeholder="dob" data-error="" required="">
                 </div>
               </div>
             </div>
@@ -131,7 +139,7 @@
               <div class="row">
                 <div class="col-sm-6 " style="margin-bottom:5px;">
                   <div class="col-md-12">
-                    <button (click)="addUser()" type="submit" class="btn btn-primary btn-block ">Submit</button>
+                    <button (click)="updateUser()" type="submit" class="btn btn-primary btn-block ">Submit</button>
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -208,7 +216,7 @@
       position: relative;
     }
 
-    .switch {
+.switch {
   position: relative;
   display: inline-block;
   width: 60px;

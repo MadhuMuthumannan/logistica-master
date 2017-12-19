@@ -1,8 +1,84 @@
-<nb-card>
+<!-- <nb-card>
   <nb-card-header>
     <h2>View Vendors</h2>
   </nb-card-header>
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    <ng2-smart-table [settings]="settings" [source]="data" (edit)="vendorEdit(this)" (click)="onClick($event)"></ng2-smart-table>
+  </nb-card-body>
+</nb-card> -->
+
+
+<nb-card>
+  <nb-card-header>
+    <h2>View Vendor</h2>
+    <!-- <ul *ngFor="let datas of data">
+        <li >{{datas.city_id.title}}</li>
+    </ul> -->
+
+  </nb-card-header>
+  <nb-card-body>
+    <div class="table-responsive col-md-12" style="padding-left:0px; padding-right:0px;">
+      <table class="table table-hover">
+        <thead>
+          <tr style="white-space:nowrap;">
+            <th>Name</th>
+            <th>Mobile No.</th>
+            <th>Email Id</th>
+            <th>ID</th>
+            <th>Gender</th>
+            <th>Wallet Amount</th>
+            <th>Agency</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Status</th>
+            <th colspan="2" style="text-align: center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datas of data">
+            <td>
+              {{datas.name}}
+            </td>
+            <td>
+              {{datas.mobile_no}}
+            </td>
+            <td>
+              {{datas.email_id}}
+            </td>
+            <td>
+              {{datas.id}}
+            </td>
+            <td>
+              {{datas.gender}}
+            </td>
+            <td>
+              {{datas.wallet}}
+            </td>
+            <td>
+              {{datas.agency_name}}
+            </td>
+            <td>
+              {{datas.city}}
+            </td>
+            <td>
+              {{datas.country}}
+            </td>
+            <td>
+              {{datas.status}}
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary btn-sm" id="{{datas.id}}" [routerLink]="['/editvendor/'+datas.id]">Edit</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </nb-card-body>
 </nb-card>
+<!-- <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    </nb-card-body>
+</nb-card> -->

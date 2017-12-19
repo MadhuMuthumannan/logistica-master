@@ -7,41 +7,41 @@ import {DriverService } from '../../../services/driver.service';
   providers: [DriverService],
 })
 export class ViewdriverComponent implements OnInit {
-  settings = {
-    columns: {
-      id: {
-        title: 'ID'
-      },
-      name: {
-        title: 'Name'
-      },
-      mobile: {
-        title: 'Mob. No.'
-      },
-      email: {
-        title: 'Email Id'
-      },
-      gender:{
-        title: 'Gender'
-      },
-      city:{
-        title: 'City'
-      },
-      country:{
-        title: 'Country'
-      },
-      driver_visibility: {
-        title: 'Driver Visibility'
-      },
-      current_location: {
-        title: 'Current Loctn'
-      }
-    },
-    pager : {
-      perPage: 12
-    },
-    width:"20px, 8px,20px,15px,15px,15px,15px,10px "
-  };
+  // settings = {
+  //   columns: {
+  //     id: {
+  //       title: 'ID'
+  //     },
+  //     name: {
+  //       title: 'Name'
+  //     },
+  //     mobile: {
+  //       title: 'Mob. No.'
+  //     },
+  //     email: {
+  //       title: 'Email Id'
+  //     },
+  //     gender:{
+  //       title: 'Gender'
+  //     },
+  //     city:{
+  //       title: 'City'
+  //     },
+  //     country:{
+  //       title: 'Country'
+  //     },
+  //     driver_visibility: {
+  //       title: 'Driver Visibility'
+  //     },
+  //     current_location: {
+  //       title: 'Current Loctn'
+  //     }
+  //   },
+  //   pager : {
+  //     perPage: 12
+  //   },
+  //   width:"20px, 8px,20px,15px,15px,15px,15px,10px "
+  // };
 
   data = [
     // {     

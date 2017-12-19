@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExtraOptions, RouterModule, Routes, Params, Router, ActivatedRoute} from '@angular/router';
 import { VendorService } from '../../../services/vendor.service';
 @Component({
   selector: 'app-viewvendor',
@@ -7,45 +8,46 @@ import { VendorService } from '../../../services/vendor.service';
   providers: [VendorService],
 })
 export class ViewvendorComponent implements OnInit {
-  settings = {
-    columns: {
-      name: {
-        title: 'Name'
-      },
-      mobile_no: {
-        title: 'Mob. No.'
-      },
-      email_id: {
-        title: 'Email Id'
-      },
-      id:{
-        title: 'Id'
-      },
-      gender:{
-        title: 'Gender'
-      },
-      wallet:{
-        title: 'Wallet Amt'
-      },
-      agency:{
-        title: 'Agency'
-      },
-      city: {
-        title: 'City' 
-      },
-      country: {
-        title: 'country'
-      },
-      status: {
-        title: 'Status'
-      }
-    },
-    pager : {
-      perPage: 12
-    },
-    width:"20px, 8px,20px,15px,15px,15px,15px,10px "
-  };
-
+  // settings = {
+  //   columns: {
+  //     name: {
+  //       title: 'Name'
+  //     },
+  //     mobile_no: {
+  //       title: 'Mob. No.'
+  //     },
+  //     email_id: {
+  //       title: 'Email Id'
+  //     },
+  //     id:{
+  //       title: 'Id'
+  //     },
+  //     gender:{
+  //       title: 'Gender'
+  //     },
+  //     wallet:{
+  //       title: 'Wallet Amt'
+  //     },
+  //     agency:{
+  //       title: 'Agency'
+  //     },
+  //     city: {
+  //       title: 'City' 
+  //     },
+  //     country: {
+  //       title: 'country'
+  //     },
+  //     status: {
+  //       title: 'Status'
+  //     }
+  //   },
+  //   pager : {
+  //     perPage: 12
+  //   },
+  //   mode: 'external',
+  //   width:"20px, 8px,20px,15px,15px,15px,15px,10px "
+  // };
+  // //mode = external;
   data = [
     
     {
@@ -61,11 +63,20 @@ export class ViewvendorComponent implements OnInit {
       status:'',
     }
   ];
-  constructor(public VendorService:VendorService) { }
-
   
+  
+  vendorEdit(){
+    console.log(this);
+    //this.router.navigate(['/editvendor/'+datas.id]);
+  }
+  constructor(public VendorService:VendorService,public router:Router ,public route: ActivatedRoute) { }
+
+  onClick(event){
+    console.log(event);
+  }
   ngOnInit() {  
     this.VendorService.getVendors().subscribe(user => { 
+      console.log(user.response);
       this.data=user.response;
       
       user.response.forEach((responsesingle : any)=>{

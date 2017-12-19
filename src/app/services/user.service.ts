@@ -23,6 +23,23 @@ export class UserService {
      .post('http://thelogistica.in:4000/user', user, {})
      .subscribe();
   }
+
+  updateUser(data): Observable<any>{    
+    console.log("update user web service triggered");        
+    console.log(data);        
+    return this.http.post('http://thelogistica.in:4000/userupdate',data)
+      .map((user: Response) => user)
+  }
+
+  updateUserImage(data: ImageData): Observable<any>{
+    console.log("Update image service called"); 
+    console.log(data);
+    console.log('http://thelogistica.in:4000/userupdateimage',data);    
+    return this.http.post('http://thelogistica.in:4000/userupdateimage',data)
+      .map((user: Response) => user)
+  }
+
+
   constructor(public http: HttpClient) { }
       // getUsers(){
       //   console.log("Get users service called");
@@ -74,5 +91,8 @@ export class UserService {
         return this.http.post('http://thelogistica.in:4000/countrylist',data)
           .map((country: Response) => country)
       }
+
+
+      
   }
 

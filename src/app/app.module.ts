@@ -5,7 +5,7 @@
  */
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { CoreModule } from './@core/core.module';
@@ -34,14 +34,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [AppComponent, UserComponent, VendorComponent],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyCl0wN79C9OboJBPnZ1uWZuFfDTvZiEUkc",
+      apiKey: "AIzaSyDLgJ4YaYspfMTzMmVLGzyqcHZxCZvazvM",
       libraries: ["places"]
     }),
     // FlashMessagesModule.forRoot(),
     BrowserModule,
     SelectModule,
     PagesModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,

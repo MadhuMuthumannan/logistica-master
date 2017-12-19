@@ -35,4 +35,21 @@ export class DriverService {
     return this.http.post('http://thelogistica.in:4000/driverlist', data)
       .map((driver: Response) => driver)
   }
+
+  getDriver(id: any): Observable<any>{
+    console.log("Get driver service called"); 
+    let query = "?id="+id;   
+    console.log('http://thelogistica.in:4000/driverprofile'+query);    
+    return this.http.get('http://thelogistica.in:4000/driverprofile'+query)
+      .map((vendor: Response) => vendor)
+  }
+
+  updateImage(data: ImageData): Observable<any>{
+    console.log("Get driver service called"); 
+    console.log(data);
+    console.log('http://thelogistica.in:4000/updateimage',data);    
+    return this.http.post('http://thelogistica.in:4000/updateimage',data)
+      .map((vendor: Response) => vendor)
+  }
+
 }

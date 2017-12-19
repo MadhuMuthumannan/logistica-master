@@ -1,0 +1,73 @@
+<!-- <nb-card>
+    <nb-card-header>
+      <h2>TransactionList View</h2>
+    </nb-card-header>
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    </nb-card-body>
+  </nb-card> -->
+
+  <nb-card>
+      <nb-card-header>
+        <h2>Transactions List</h2>
+        <!-- <ul *ngFor="let datas of data">
+            <li >{{datas.city_id.title}}</li>
+        </ul> -->
+    
+      </nb-card-header>
+      <nb-card-body>
+        <div class="table-responsive col-md-12" style="padding-left:0px; padding-right:0px;">
+          <table class="table table-hover">
+            <thead>
+              <tr style="white-space:nowrap;">
+                <th>ID</th>
+                <th>Transaction Number</th>
+                <th>Transaction Type</th>
+                <th>Order Number</th>
+                <th>Price</th>
+                <th>Status</th>                
+                <th>Details</th>                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let datas of data">
+                <td>
+                  {{datas.id}}
+                </td>
+                <td>
+                  {{datas.transaction_number}}
+                </td>
+                <td>
+                  {{datas.transaction_type_id.name}}
+                </td>
+                <td>
+                  {{datas.order_id.order_number}}
+                </td>
+                <td>
+                  {{datas.price}}
+                </td>
+                <td>
+                  {{datas.status.title}}
+                </td>
+                <td>
+                  <button class="btn btn-primary" id="{{datas.id}}" [routerLink]="['/transactiondetails/'+datas.id]">Details <i class="fa fa-arrow-circle-right fa-adjust" aria-hidden="true"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </nb-card-body>
+    </nb-card>  
+
+
+    <style>
+      .btn .btn-primary{
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+        line-height: 0.5 !important;
+      }
+
+      .table th, .table td{
+        vertical-align: middle !important;
+      }
+    </style>

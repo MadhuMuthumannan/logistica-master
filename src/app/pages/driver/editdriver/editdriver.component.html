@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12 form-group  ">
                   <label for="location" class="control-label">Mobile No.</label>
-                  <input type="text" class="form-control" id="location" [(ngModel)]="data.phone" name="phone" placeholder="Mobile No" data-error="Please enter a valid email address."
+                  <input type="text" class="form-control" id="location" [(ngModel)]="data.mobile" name="mobile" placeholder="Mobile No" data-error="Please enter a valid email address."
                     required="">
                   <div *ngIf="error.location" class="help-block with-errors">
                     <ul class="list-unstyled">
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12 form-group fixheight">
                   <label for="license" class="control-label">License Number</label>
-                  <input type="text" class="form-control" id="license" [(ngModel)]="data.license" name="license" placeholder="license Name"
+                  <input type="text" class="form-control" id="license" [(ngModel)]="data.license_number" name="license_number" placeholder="license Name"
                     data-error="Please enter a valid email address." required="">
                   <div *ngIf="error.license" class="help-block with-errors">
                     <ul class="list-unstyled">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12 form-group fixheight">
                   <label for="visibility" class="control-label">Driver Visibilty</label>
-                  <select id="visibility" [(ngModel)]="data.visibility" name="visibility" class="custom-select" data-error="This field is required."
+                  <select id="visibility" [(ngModel)]="data.driver_visibility" name="driver_visibility" class="custom-select" data-error="This field is required."
                     required="">
                     <option value="" selected="selected">Choose Visibilty</option>
                     <option value="1">Visible</option>
@@ -120,11 +120,11 @@
                 <div class="col-md-4 col-sm-12 form-group paddingfixheight">
                   <label for="gender" class="control-label">Gender</label>
 
-                  <select id="gender" [(ngModel)]="data.genderr" name="gender" class="custom-select" data-error="This field is required." required="">
+                  <select id="gender" [(ngModel)]="data.gender" name="gender" class="custom-select" data-error="This field is required." required="">
                     <option value="" selected="selected">Choose Gender</option>
                     <option value="1">Male</option>
                     <option value="2">Female</option>
-                    <option value="3">Others</option>
+                    <option value="0">Others</option>
                   </select>
                   <div *ngIf="error.gender" class="help-block with-errors">
                     <ul class="list-unstyled">
@@ -134,7 +134,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12 form-group padding">
                   <label for="aadhar" class="control-label">Aadhar Number</label>
-                  <input type="text" class="form-control" id="aadhar" [(ngModel)]="data.aadhar" name="gst" placeholder="aadhar Amount" data-error="Please enter a valid email address."
+                  <input type="text" class="form-control" id="aadhar" [(ngModel)]="data.aadhar_no" name="aadhar_no" placeholder="aadhar number" data-error="Please enter a valid email address."
                     required="">
                   <div *ngIf="error.aadhar" class="help-block with-errors">
                     <ul class="list-unstyled">
@@ -144,7 +144,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12 form-group padding">
                   <label for="dob" class="control-label">DOB</label>
-                  <my-date-picker name="dateofbirth" [options]="myDatePickerOptions" [(ngModel)]="data.dob" id="dateofbirth" required></my-date-picker>
+                  <my-date-picker name="dateofbirth" [options]="myDatePickerOptions" [(ngModel)]="data.dob" id="dob" required></my-date-picker>
                   <div *ngIf="error.dob" class="help-block with-errors">
                     <ul class="list-unstyled">
                       <li style="color: red">Pick your DOB</li>
@@ -157,7 +157,7 @@
               <div class="row">
                 <div class="col-md-4 col-sm-12 form-group fixheight">
                   <label for="document" class="control-label">License NO Document</label>
-                  <input type="text" class="form-control" id="document" [(ngModel)]="data.document" name="document" placeholder="License document"
+                  <input type="text" class="form-control" id="license_no_document" [(ngModel)]="data.license_no_document" name="license_no_document" placeholder="License document"
                     required="">
                   <div *ngIf="error.document" class="help-block with-errors">
                     <ul class="list-unstyled">
@@ -195,7 +195,7 @@
               <div class="row">
                 <div class="col-md-4 col-sm-12 form-group ">
                   <label for="vendor" class="control-label">Vendor</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.vendor" name="vendor" id="vendor" placeholder="vendor" data-error="" required="">
+                  <input type="text" class="form-control" [(ngModel)]="data.vendor_id" name="vendor_id" id="vendor" placeholder="vendor" data-error="" required="">
                   <div *ngIf="error.vendor" class="help-block with-errors">
                     <ul class="list-unstyled">
                       <li style="color: red">Name should be minimum of 3 characters</li>

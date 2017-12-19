@@ -1,0 +1,224 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 col-sm-12">
+    <nb-card>
+      <nb-card-header>
+
+        <h2>Vehicle Type</h2>
+
+      </nb-card-header>
+      <nb-card-body>
+        <div>
+          <form>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="name" class="control-label">Name</label>
+                  <input type="text" class="form-control" id="name" [(ngModel)]="data.name" name="name" placeholder="Name" data-error="" required="">
+                  <div *ngIf="error.name" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Name should be minimum of 3 characters</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="email" class="control-label">ID</label>
+                  <input type="text" class="form-control" id="id" [(ngModel)]="data.id" name="id" #clientFirstName="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    placeholder="id" data-error="" required="">
+                  <div *ngIf="error.id" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Please enter a valid Email</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group padding ">
+                  <label for="capacity" class="control-label">Capacity</label>
+                  <input type="text" class="form-control" id="capacity" placeholder="capacity" [(ngModel)]="data.capacity" name="capacity"
+                    minlength="10" maxlength="10" data-error="Please enter a valid email address." required="">
+                  <div *ngIf="error.password" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Capacity required</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="country" class="control-label">Dimensions</label>
+                  <input type="text" class="form-control" id="dimension" [(ngModel)]="data.dimension" name="dimension" placeholder="dimension" data-error="" required="">
+
+                  <div *ngIf="error.dimension" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Dimensions required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group padding">
+                  <label for="status" class="control-label">Status</label>
+
+                  <br>
+                  <label class="switch">
+                      <input type="checkbox" [(ngModel)]="data.status" name="status" (change)="ifChecked($event)">
+                      <span class="slider round"></span>
+                    </label>
+
+                  <div *ngIf="error.status" class="help-block with-errors">
+                    <ul class="list-unstyled">
+                      <li style="color: red">Status required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 form-group">
+              <div class="row">
+                <div class="col-sm-6 " style="margin-bottom:5px;">
+                  <div class="col-md-12">
+                    <button (click)="vehicleType()" type="submit" class="btn btn-primary btn-block ">Submit</button>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-danger btn-block ">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </nb-card-body>
+      <nb-card-footer>
+        <div class="site-footer">
+          2017 © Logistica. Powered By
+          <a href="http://wooftec.com/" target="_blank">wooftec</a>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+
+
+<style>
+    label {
+      color: #000000 !important;
+    }
+
+    tr td, table, .table td{
+      vertical-align: middle !important;
+    }
+    .form-control {
+      padding: 0.35rem;
+      border: 1px solid #ced4da;
+    }
+
+    .custom-select {
+      border-color: 2px solid #ccccb3 !important;
+    }
+
+    .nb-theme-default .input-group-addon,
+    .nb-theme-default .form-control {
+      border: none !important;
+    }
+
+    .help-block .with-errors{
+      color: red !important;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    .padding{
+      padding-bottom: 20px;
+    }
+
+    #grayOutDiv
+{
+    background-color: #333;
+    opacity: 0.7;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.flash-message
+{
+    z-index: 10000;
+    position: relative;
+}
+.switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      display: none;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    select {
+      border-radius: 0.35rem;
+      height: 2.3rem;
+      border: 1px solid #ced4da;
+      width: 100%;
+    }
+  </style>

@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
       <nb-card>
@@ -7,6 +8,21 @@
         <nb-card-body>
           <div>
             <form data-toggle="" novalidate="">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="row">
+                      <div class="col-md-4 col-sm-12">
+                        <h5>Choose RC Book scan copy from your device</h5>
+                        <br>
+                        <input type="file" 
+                        [(ngModel)]="data.image" 
+                        name="image"
+                        id="image"
+                        accept="image/*" (change)="changeListener($event)">
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
               <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="row">
                   <div class="col-md-4 col-sm-12 form-group fixheight">
@@ -14,102 +30,103 @@
                       <label for="form-control-3" class="control-label">Model</label>
                     </div>
                     <div>
-                      <select id="form-control-3" class="custom-select" data-error="This field is required." required="">
-                        <option value="" selected="selected">Model</option>
-                        <option value="1">2001</option>
-                        <option value="2">2002</option>
-                        <option value="5">2003</option>
-                        <option value="6">2007</option>
-                        <option value="7">2012</option>
-                      </select>
+                      <input type="text" 
+                      class="form-control" 
+                      [(ngModel)]="data.model" 
+                      name="agency"
+                      id="model" 
+                      placeholder="Vehicle Number" data-error="" required="">
                     </div>
-                    <div class="help-block with-errors">
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Model</li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-3" class="control-label">Type</label>
-                    <select id="form-control-3" class="custom-select" data-error="This field is required." required="">
-                      <option value="" selected="selected">Type</option>
-                      <option value="1">2001</option>
-                      <option value="2">2002</option>
-                      <option value="5">2003</option>
-                      <option value="6">2007</option>
-                      <option value="7">2012</option>
-                    </select>
-                    <div class="help-block with-errors">
+                    <label for="vehicleType" class="control-label">Vehicle Type</label>
+                    <ng-select [options]="vehicleType" [(ngModel)]="data.vehicleType" 
+                    name="vehicleType" id="vehicleType">
+                    </ng-select>
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Type</li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">Vechile Number</label>
-                    <input type="text" class="form-control" id="form-control-2" placeholder="Vechile No" data-error="" required="">
-                    <div class="help-block with-errors">
+                    <label for="number" class="control-label">Vechile Number</label>
+                    <input type="text" 
+                    class="form-control" 
+                    [(ngModel)]="data.number" 
+                    name="number"
+                    id="number" 
+                    placeholder="Vehicle Number" data-error="" required="">
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Vechile No</li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
               <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="row">
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">Email ID</label>
-                    <input type="text" class="form-control" id="form-control-2" placeholder="Email" data-error="Please enter a valid email address."
-                      required="">
-                    <div class="help-block with-errors">
+                    <label for="form-control-2" class="control-label">ID</label>
+                    <h5>234</h5>
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Email ID</li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
                     <label for="form-control-2" class="control-label">Manufacture Year</label>
-                    <input type="text" class="form-control" id="form-control-2" placeholder="Manufacture Year" data-error="" required="">
-                    <div class="help-block with-errors">
+                    <my-date-picker name="year" [options]="myDatePickerOptions1"
+                    [(ngModel)]="data.year" id="year" required></my-date-picker>
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Manufacture Year</li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
                     <label for="form-control-2" class="control-label">Capacity</label>
-                    <input type="text" class="form-control" id="form-control-2" placeholder="Capacity" data-error="Please enter a valid email address."
-                      required="">
-                    <div class="help-block with-errors">
+                    <input type="text" 
+                    class="form-control" 
+                    [(ngModel)]="data.capacity" 
+                    name="capacity"
+                    id="capacity" 
+                    placeholder="Vehicle capacity" data-error="" required="">
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Capacity</li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
               <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="row">
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">Max Weight</label>
-                    <input type="text" class="form-control" id="form-control-2" placeholder="Max Weight" data-error="Please enter a valid email address."
-                      required="">
-                    <div class="help-block with-errors">
+                    <label for="form-control-2" class="control-label">Driver</label>
+                    <ng-select [options]="driver" [(ngModel)]="data.driver" 
+                    name="driver" id="driver">
+                    </ng-select>
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Max Weight</li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
-                  <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">Load</label>
-                    <input type="text" class="form-control" id="form-control-2" placeholder="Load" data-error="Please enter a valid email address."
-                      required="">
-                    <div class="help-block with-errors">
-                      <ul class="list-unstyled">
-                        <li>Please enter a Load</li>
-                      </ul>
-                    </div>
+                  <div class="col-md-4 col-sm-12 form-group padding">
+                    <label for="status" class="control-label">Status</label>
+                    <br>
+                    <label class="switch">
+                      <input type="checkbox" [(ngModel)]="status" name="status" (change)="ifChecked($event)">
+                      <span class="slider round"></span>
+                    </label>  
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
                     <label for="form-control-3" class="control-label">Helpers</label>
@@ -117,11 +134,30 @@
                       <option value="1">Yes</option>
                       <option value="2">No</option>
                     </select>
-                    <div class="help-block with-errors">
+                    <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Helpers </li>
                       </ul>
-                    </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="row">                  
+                  <div class="col-md-4 col-sm-12 form-group fixheight">
+                    <label for="form-control-3" class="control-label">RC Book</label>
+                    <select id="form-control-3" class="custom-select" data-error="This field is required." required="">
+                      <option value="0">Select</option>                        
+                      <option value="1">Approve</option>
+                      <option value="2">Disapprove</option>
+                      <option value="3">Edit</option>
+                      <option value="4">Add</option>
+                    </select>
+                    <!-- <div class="help-block with-errors">
+                      <ul class="list-unstyled">
+                        <li>Please enter a Helpers </li>
+                      </ul>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -129,7 +165,7 @@
                 <div class="row">
                   <div class="col-sm-6 " style="margin-bottom:5px;">
                     <div class="col-md-12">
-                      <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+                      <button type="submit" class="btn btn-primary btn-block" (click)="addVehicle()">Submit</button>
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -177,4 +213,76 @@
       select {
         width: 100%;
       }
+      .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+select{
+  border-radius: 0.35rem;    
+    height: 2.3rem;
+    border: 1px solid #ced4da;
+}
     </style>
+
+<script>
+  $( document ).ready(function() {
+    console.log( "ready!" );
+    $('.date-own').datepicker({
+         minViewMode: 2,
+         format: 'yyyy'
+       });
+});
+   
+</script>

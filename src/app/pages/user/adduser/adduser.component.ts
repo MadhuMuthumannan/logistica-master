@@ -39,8 +39,8 @@ export class AdduserComponent implements OnInit {
     "country":false,
   }
 
- private cityList :any = []
- private countryList :any = []
+ private cityList :any = [];
+ private countryList :any = [];
  
   // options=[
   //   {

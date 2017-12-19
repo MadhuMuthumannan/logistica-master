@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MyDatePickerModule } from 'mydatepicker';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import { UUID } from 'angular2-uuid';
+import 'rxjs/add/operator/toPromise';
+import { ExtraOptions, RouterModule, Routes, Params, Router, ActivatedRoute} from '@angular/router';
 import {Md5} from 'ts-md5/dist/md5';
 import { DriverService} from '../../../services/driver.service';
 @Component({
@@ -12,25 +17,31 @@ export class EditdriverComponent implements OnInit {
   public b64:any;
   
   public id: string;
-  private data:any = {
-    "name":'',
-    "gender":'1',
-    "phone":'',
-    "password":'',
-    "email":'',
-    "dob":'',
-    "city":'1',
-    "agency":'',
-    "pan":'',
-    "gst":'',
-    "tin":'',
-    "vat":'',
-    "bank":'',
-    "ifsc":'',
-    "country":'1',
-    "uuid" : "2468789",
-    "system_info" : "bhjbc"
+  private data:any = [];
+  private imageData:any = [];
+
+  changeListener($event): void {
+    this.readThis($event.target);
   }
+  // {
+  //   "name":'',
+  //   "gender":'1',
+  //   "phone":'',
+  //   "password":'',
+  //   "email":'',
+  //   "dob":'',
+  //   "city":'1',
+  //   "agency":'',
+  //   "pan":'',
+  //   "gst":'',
+  //   "tin":'',
+  //   "vat":'',
+  //   "bank":'',
+  //   "ifsc":'',
+  //   "country":'1',
+  //   "uuid" : "2468789",
+  //   "system_info" : "bhjbc"
+  // }
   private error : any ={
     "name":false,
     "gender":false,
@@ -206,36 +217,50 @@ export class EditdriverComponent implements OnInit {
     readThis(inputValue: any): void {
       var file:File = inputValue.files[0];
       var myReader:FileReader = new FileReader();
-      console.log(file);
+      //console.log(file);
       myReader.onloadend = (e) => {
         this.b64 = myReader.result;
-        console.log(this.b64);
+        //console.log(this.b64);
+        this.imageData = {id: this.id, file: this.b64}
+        this.DriverService.updateImage(this.imageData).subscribe(image => { 
+          console.log(image);      
+          this.data=image;
+        });
       }
       myReader.readAsDataURL(file);  
-  
+      //console.log(this.b64);
+      
     }
-  constructor(public DriverService: DriverService) { }
+  constructor(public DriverService: DriverService, public router:Router ,public route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.data = {
-      "name":"madhu",
-      "gender":"Male",
-      "phone":"1212121212",
-      "password":"adfasdf343@#$",
-      "email":"madhu@gmail.com",
-      "dob":"",
-      "city":"super",
-      "agency":"super",
-      "pan":"super",
-      "gst":"super",
-      "tin":"super",
-      "vat":"super",
-      "bank":"super",
-      "ifsc":"super",
-      "country":"super",
-      "uuid" : "false",
-      "system_info" : "false",
-  }
+  //   this.data = {
+  //     "name":"madhu",
+  //     "gender":"Male",
+  //     "phone":"1212121212",
+  //     "password":"adfasdf343@#$",
+  //     "email":"madhu@gmail.com",
+  //     "dob":"",
+  //     "city":"super",
+  //     "agency":"super",
+  //     "pan":"super",
+  //     "gst":"super",
+  //     "tin":"super",
+  //     "vat":"super",
+  //     "bank":"super",
+  //     "ifsc":"super",
+  //     "country":"super",
+  //     "uuid" : "false",
+  //     "system_info" : "false",
+  // }
+    this.id = this.route.snapshot.params['id'];
+    this.DriverService.getDriver(this.id).subscribe(driver => { 
+      console.log(driver);      
+      this.data=driver;
+      this.data.status=driver.status.title;    
+      this.data.city=driver.city_id.title;  
+      this.data.country=driver.city_id.country_id.title; 
 
+    });    
   }
 }
