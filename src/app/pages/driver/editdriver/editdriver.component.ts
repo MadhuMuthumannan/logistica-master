@@ -192,25 +192,28 @@ export class EditdriverComponent implements OnInit {
     }
 
 
-    editUser(){  
+    driverUpdate(){  
       console.log("add user function");
       console.log("gender:" +this.data.genderr);
       console.log("dateofbirth:" +this.data.dob);
       console.log("bank:" +this.data.bank);
-      if(this.checkValidation())
-      {
+      // if(this.checkValidation())
+      // {
         // this.data.city = "1";
         // this.data.country = "1";
         // this.data.status="Active";
         // this.data.dob = parseInt(this.data.dateofbirth.epoc);
         console.log(this.data);
-        // console.log("dateofbirth:"+this.data.dob);
-        // console.log("dateofbirth.epoc:"+this.data.dateofbirth.epoc);
-        // console.log(this.data);
-        //this.UserService.newUser(this.data); 
-        //this._flashMessagesService.show('Success!', { cssClass: 'alert-success' } );   
-        //this.data=[];
-      }
+        this.data.city = "1";
+        this.data.status = "1";
+        this.data.licence_no = "2345564",
+        this.data.licence_number = "2345564",
+        this.data.aadhar_no = "2345564",
+        this.data.aadhar_number = "2345564",
+        this.data.dob = "123456789",
+        this.DriverService.updateDriver(this.data).subscribe(driver => { 
+          console.log(driver);
+      });
          
     }
   

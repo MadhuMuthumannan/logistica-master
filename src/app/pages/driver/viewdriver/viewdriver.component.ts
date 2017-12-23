@@ -62,10 +62,10 @@ export class ViewdriverComponent implements OnInit {
   constructor(public DriverService:DriverService) { }
 
   ngOnInit() {  
-    this.DriverService.getDrivers().subscribe(user => { 
-      console.log(user.response);
-      this.data=user.response;
-      user.response.forEach((responsesingle : any)=>{
+    this.DriverService.getDrivers().subscribe(driver => { 
+      console.log(driver.response);
+      this.data=driver.response;
+      driver.response.forEach((responsesingle : any)=>{
         this.data.forEach((datasingle : any)=>{
           datasingle.country=responsesingle.city_id.country_id.title;
           datasingle.city=responsesingle.city_id.title;

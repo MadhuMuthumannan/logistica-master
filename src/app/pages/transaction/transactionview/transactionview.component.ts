@@ -13,7 +13,7 @@ import { TransactionService } from '../../../services/transaction.service';
 })
 export class TransactionviewComponent implements OnInit {
  public id : string;
- public data = [];
+ public data :any=  [];
   constructor(public TransactionService:TransactionService,public router:Router ,public route: ActivatedRoute) { }
 
   ngOnInit() {

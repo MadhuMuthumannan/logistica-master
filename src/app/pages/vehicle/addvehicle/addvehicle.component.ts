@@ -4,6 +4,8 @@ import { Vehicle } from '../vehicle';
 import {IMyDpOptions} from 'mydatepicker';
 import { MyDatePickerModule } from 'mydatepicker';
 import * as $ from 'jquery';
+import { ExtraOptions, RouterModule, Routes, Params, Router, ActivatedRoute} from '@angular/router';
+import { Route } from '@angular/router/src/config';
 @Component({
   selector: 'app-addvehicle',
   templateUrl: './addvehicle.component.html',
@@ -17,22 +19,25 @@ export class AddvehicleComponent implements OnInit {
     yearSelector: true,
   }
   public b64: any;
+  public id: string;
+  public title: string;
+  public ifImage: boolean;
   private vehicleType: any = [
     {
       label: "Lorry",
-      value: "Lorry"
+      value: "1"
     },
     {
       label: "Truck",
-      value: "Truck"
+      value: "2"
     },
     {
       label: "Tempo",
-      value: "Tempo"
+      value: "3"
     },
     {
       label: "Mini Elephant",
-      value: "Mini Elephant"
+      value: "4"
     },
   ];
   private driver: any = [
@@ -57,15 +62,15 @@ export class AddvehicleComponent implements OnInit {
     // other options...
     dateFormat: 'yyyy',
 };
-  public id: string;
+
   private data: any = {
     "name": '',
-    "model": '1',
+    "model": '',
     "type": '',
     "number": '',
     "manufacture_year": '',
     "capacity": '',
-    "helper_availability": '1',
+    "helper_availability": '',
     "driver": '',
     "image": '',
     "rc_book": '',
@@ -88,27 +93,79 @@ export class AddvehicleComponent implements OnInit {
     "uuid": false,
     "system_info": false,
   }
-
+  
   changeListener($event): void {
     this.readThis($event.target);
   }
+  
 
   readThis(inputValue: any): void {
     var file: File = inputValue.files[0];
     var myReader: FileReader = new FileReader();
-    console.log(file);
+    //console.log(file);
     myReader.onloadend = (e) => {
+      this.data.image_flag = true;
       this.b64 = myReader.result;
-      console.log(this.b64);
+      //console.log(this.b64);
+      if(this.b64){
+        this.data.image_flag = true;
+      }
+      else{
+        this.data.image_flag = false;
+      }
+      this.data.image = this.b64;
     }
     myReader.readAsDataURL(file);
 
   }
 
+  changeListener1($event): void {
+    this.readThis1($event.target);
+  }
+
+  readThis1(inputValue: any): void {
+    var file: File = inputValue.files[0];
+    var myReader: FileReader = new FileReader();
+    //console.log(file);
+    myReader.onloadend = (e) => {
+      this.data.rc_flag = true;
+      this.b64 = myReader.result;
+      //console.log(this.b64);
+      if(this.b64){
+        this.data.rc_flag = true;
+      }
+      else{
+        this.data.rc_flag = false;
+      }
+      this.data.rc_book_document = this.b64;
+    }
+    myReader.readAsDataURL(file);
+
+  }
+
+  ifChecked(){
+    if(this.data.status == true){
+      this.data.status = 1;
+    }
+    else{
+      this.data.status = 0;
+    }
+  }
   addVehicle(){
     console.log("addVehicle function called in component");
+    this.data.id = "";
+    this.data.manufacture_year = this.data.manufacture_year.formatted;
+    this.data.vehicle_pack = "1";
+    this.data.driver_id = "1";
     console.log(this.data);
+    //this.VehicleService.newVehicle(this.data); 
+    this.VehicleService.newVehicle(this.data).subscribe(vehicle => { 
+      console.log(vehicle);            
+    });
   }
+
+
+
   checkValidation() {
     this.error.name = false;
     this.error.model = false;
@@ -166,13 +223,39 @@ export class AddvehicleComponent implements OnInit {
     return flag;
   }
  
-  constructor(public VehicleService: VehicleService) { }
-  onSubmit({ value, valid }: { value: Vehicle, valid: boolean }) {
-    this.VehicleService.newVehicle(value);
-  }
+  constructor(public VehicleService: VehicleService,public router:Router ,public route: ActivatedRoute) { }
+  // onSubmit({ value, valid }: { value: Vehicle, valid: boolean }) {
+  //   this.VehicleService.newVehicle(value);
+  // }
+
   ngOnInit() {
-    
-  }
+    var id = this.route.params.subscribe(params => {
+      var id = params['id'];
+      if(id){
+        console.log(id)
+      }      
+      this.title = id ? 'Edit Vehicle' : 'New Vehicle';
+
+      if (!id)
+        return;
+      else{
+        this.ifImage = true;
+        console.log("this is edit vehicle page");
+        this.VehicleService.getVehicle(id).subscribe(vehicle => { 
+          console.log(vehicle);      
+          this.data=vehicle;  
+        });
+      }
+        
+      // this.VehicleService.getVehicle(this.id)
+      //   .subscribe(
+      //     vehicle =>  vehicle,
+      //     response => {
+      //       if (response.status == 404) {
+      //         this.router.navigate(['vehicle/viewvehicle']);
+      //       }
+      //     });
+    });
 
   // ngAfterViewInit() {
   //   (<any>$('.date-own') ).datepicker({
@@ -181,4 +264,5 @@ export class AddvehicleComponent implements OnInit {
   //   });
   //}
  
+}
 }

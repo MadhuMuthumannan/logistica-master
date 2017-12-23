@@ -7,21 +7,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
-  newUser(user:User){
-    //alert("on sumbit clicked");
-    // let data = {
-    //   "name" : "madhu",
-    //   "email" : "madhu16@gmail.com",
-    //   "phone" : "12376790",
-    //   "password" : "123456",
-    //   "uuid" : "23456786",
-    //   "system_info" : "web"
-    // }
-    console.log("User values in service are:");
-    console.log(user);    
-     this.http
-     .post('http://thelogistica.in:4000/user', user, {})
-     .subscribe();
+  
+
+  newUser(user:User): Observable<any>{    
+    console.log("add user web service triggered");        
+    console.log(user);        
+    return this.http.post('http://thelogistica.in:4000/user',user)
+      .map((user: Response) => user)
   }
 
   updateUser(data): Observable<any>{    

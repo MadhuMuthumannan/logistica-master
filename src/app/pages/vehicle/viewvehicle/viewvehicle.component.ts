@@ -7,58 +7,57 @@ import { VehicleService } from '../../../services/vehicle.service';
   providers: [VehicleService],
 })
 export class ViewvehicleComponent implements OnInit {
-  settings = {
-    columns: {
-      id: {
-        title: 'ID'
-      },
-      name: {
-        title: 'Model'
-      },
-      type: {
-        title: 'Type.'
-      },
-      vehiclenum: {
-        title: 'Vehicle No.'
-      },
-      year: {
-        title: 'Manufacture Year'
-      },
-      capacity: {
-        title: 'Capacity'
-      },
-      driver: {
-        title: 'Driver'
-      },
-      dimension: {
-        title: 'Dimension'
-      },
-      status: {
-        title: 'Status'
-      }
-    },
-    pager : {
-      perPage: 12
-    },
-    width:"20px, 8px,20px,15px,15px,15px,15px,10px "
-  };
+  // settings = {
+  //   columns: {
+  //     id: {
+  //       title: 'ID'
+  //     },
+  //     name: {
+  //       title: 'Model'
+  //     },
+  //     type: {
+  //       title: 'Type.'
+  //     },
+  //     vehiclenum: {
+  //       title: 'Vehicle No.'
+  //     },
+  //     year: {
+  //       title: 'Manufacture Year'
+  //     },
+  //     capacity: {
+  //       title: 'Capacity'
+  //     },
+  //     driver: {
+  //       title: 'Driver'
+  //     },
+  //     dimension: {
+  //       title: 'Dimension'
+  //     },
+  //     status: {
+  //       title: 'Status'
+  //     }
+  //   },
+  //   pager : {
+  //     perPage: 12
+  //   },
+  //   width:"20px, 8px,20px,15px,15px,15px,15px,10px "
+  // };
 
-  data = [];
+  data: any= [];
   constructor(public VehicleService:VehicleService) { }
 
   ngOnInit() {  
-    this.VehicleService.getVehicles().subscribe(user => { 
-      this.data=user.response;
+    this.VehicleService.getVehicles().subscribe(vehiclelist => { 
+      this.data=vehiclelist.response;
       console.log(this.data);
-      user.response.forEach((responsesingle : any)=>{
+      vehiclelist.response.forEach((responsesingle : any)=>{
         this.data.forEach((datasingle : any)=>{
-          datasingle.capacity=responsesingle.capacity;
-          datasingle.dimension=responsesingle.dimension;
-          datasingle.status=responsesingle.status.title;
-          datasingle.id=responsesingle.id;
-          datasingle.name=responsesingle.name;
-          datasingle.type="Truck";
-          datasingle.driver="Driver1";
+          if(responsesingle.helper_availability=="1"){
+            datasingle.helperAvailability = "Available";
+          }
+          else{
+            datasingle.helperAvailability = "Unavailable";
+          }
       });
     });
     });

@@ -1,8 +1,75 @@
-<nb-card>
+<!-- <nb-card>
     <nb-card-header>
       <h2>View Vehicles</h2>
     </nb-card-header>
     <nb-card-body>
       <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    </nb-card-body>
+  </nb-card> -->
+
+  <nb-card>
+    <nb-card-header>
+      <h2>Vehicles List</h2>
+      <!-- <ul *ngFor="let datas of data">
+          <li >{{datas.city_id.title}}</li>
+      </ul> -->
+  
+    </nb-card-header>
+    <nb-card-body>
+      <div class="table-responsive col-md-12" style="padding-left:0px; padding-right:0px;">
+        <table class="table table-hover">
+          <thead>
+            <tr style="white-space:nowrap;">
+              <th>ID</th>
+              <th>Model</th>
+              <th>Vehicle Type</th>
+              <th>Vehicle No</th>
+              <th>Manufacture Year</th>
+              <th>Capacity</th>
+              <th>Helper Availability</th>
+              <th>Driver</th>
+              <th>Status</th>
+              <th colspan="2" style="text-align: center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let datas of data">
+              <td>
+                {{datas.id}}
+              </td>
+              <td>
+                {{datas.model}}
+              </td>
+              <td>
+                {{datas.vehicle_type.name}}
+              </td>
+              <td>
+                {{datas.vehicle_number}}
+              </td>
+              <td>
+                {{datas.manufacture_year}}
+              </td>
+              <td>
+                {{datas.capacity}}
+              </td>
+              <td>
+                {{datas.helperAvailability}}
+              </td>
+              <td>
+                {{datas.driver_id.name}}
+              </td>
+              <td>
+                "Active"
+              </td>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm" id="{{datas.id}}" [routerLink]="['/editvehicletype/'+datas.id]">Edit</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </nb-card-body>
   </nb-card>

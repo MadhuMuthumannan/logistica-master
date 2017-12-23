@@ -3,21 +3,48 @@
     <div class="col-md-12 col-lg-12 col-sm-12">
       <nb-card>
         <nb-card-header>
-          <h2>Add Vehicle</h2>
+          <h2>{{title}}</h2>
         </nb-card-header>
         <nb-card-body>
           <div>
             <form data-toggle="" novalidate="">
+                <div class="col-md-6 col-lg-6 col-sm-6" style="float: left;" *ngIf="ifImage">
+                    <div class="row">
+                      <h3>Driver Image:</h3>                    
+                    </div>
+                    <div>
+                        <p>{{data.driver_id.image_id.image}}</p>
+                        <img src="{{data.driver_id.image_id.image}}" alt="" width="120px" height="120px">                 
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-6" *ngIf="ifImage">
+                      <div class="row">
+                        <h3>RC Book Image:</h3>                    
+                      </div>
+                      <div>
+                          <p>{{data.driver_id.image_id.image}}</p>
+                          <img src="{{data.driver_id.image_id.image}}" alt="" width="120px" height="120px">                 
+                      </div>
+                    </div>
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="row">
-                      <div class="col-md-4 col-sm-12">
-                        <h5>Choose RC Book scan copy from your device</h5>
+                      <div class="col-md-4" style="padding-right: 15px;">
+                        <h5>Choose Driver image from your device</h5>
                         <br>
                         <input type="file" 
                         [(ngModel)]="data.image" 
                         name="image"
                         id="image"
                         accept="image/*" (change)="changeListener($event)">
+                      </div>
+                      <div class="col-md-4">
+                        <h5>Choose RC Book scan copy from your device</h5>
+                        <br>
+                        <input type="file" 
+                        [(ngModel)]="data.rcbookdocument" 
+                        name="image"
+                        id="image"
+                        accept="image/*" (change)="changeListener1($event)">
                       </div>
                     </div>
                   </div>
@@ -45,7 +72,7 @@
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
                     <label for="vehicleType" class="control-label">Vehicle Type</label>
-                    <ng-select [options]="vehicleType" [(ngModel)]="data.vehicleType" 
+                    <ng-select [options]="vehicleType" [(ngModel)]="data.vehicle_type" 
                     name="vehicleType" id="vehicleType">
                     </ng-select>
                     <!-- <div class="help-block with-errors">
@@ -58,7 +85,7 @@
                     <label for="number" class="control-label">Vechile Number</label>
                     <input type="text" 
                     class="form-control" 
-                    [(ngModel)]="data.number" 
+                    [(ngModel)]="data.vehicle_number" 
                     name="number"
                     id="number" 
                     placeholder="Vehicle Number" data-error="" required="">
@@ -73,8 +100,8 @@
               <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="row">
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">ID</label>
-                    <h5>234</h5>
+                    <label class="control-label">ID</label>
+                    {{data.id}}
                     <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Email ID</li>
@@ -82,9 +109,9 @@
                     </div> -->
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">Manufacture Year</label>
+                    <label class="control-label">Manufacture Year</label>
                     <my-date-picker name="year" [options]="myDatePickerOptions1"
-                    [(ngModel)]="data.year" id="year" required></my-date-picker>
+                    [(ngModel)]="data.manufacture_year" id="year" required></my-date-picker>
                     <!-- <div class="help-block with-errors">
                       <ul class="list-unstyled">
                         <li>Please enter a Manufacture Year</li>
@@ -92,7 +119,7 @@
                     </div> -->
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">Capacity</label>
+                    <label class="control-label">Capacity</label>
                     <input type="text" 
                     class="form-control" 
                     [(ngModel)]="data.capacity" 
@@ -110,7 +137,7 @@
               <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="row">
                   <div class="col-md-4 col-sm-12 form-group fixheight">
-                    <label for="form-control-2" class="control-label">Driver</label>
+                    <label class="control-label">Driver</label>
                     <ng-select [options]="driver" [(ngModel)]="data.driver" 
                     name="driver" id="driver">
                     </ng-select>
@@ -124,13 +151,15 @@
                     <label for="status" class="control-label">Status</label>
                     <br>
                     <label class="switch">
-                      <input type="checkbox" [(ngModel)]="status" name="status" (change)="ifChecked($event)">
+                      <input type="checkbox" [(ngModel)]="data.status" name="status" (change)="ifChecked($event)">
                       <span class="slider round"></span>
                     </label>  
                   </div>
                   <div class="col-md-4 col-sm-12 form-group fixheight">
                     <label for="form-control-3" class="control-label">Helpers</label>
-                    <select id="form-control-3" class="custom-select" data-error="This field is required." required="">
+                    <select id="form-control-3" 
+                    [(ngModel)]="data.helper_availability" name="helper_availability"
+                    class="custom-select" data-error="This field is required." required="">
                       <option value="1">Yes</option>
                       <option value="2">No</option>
                     </select>

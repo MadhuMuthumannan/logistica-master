@@ -89,8 +89,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
           title: 'View Vehicle',
           link: '/pages/vehicle/viewvehicle',
         }, {
-          title: 'Vehicle Type',
+          title: 'Add Vehicle Type',
           link: '/pages/vehicle/vehicletype',
+        },
+        {
+          title: 'View Vehicle Type',
+          link: '/pages/vehicle/viewvehicletype',
         },
       ],
     },

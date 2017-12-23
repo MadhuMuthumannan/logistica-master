@@ -25,6 +25,24 @@ export class DriverService {
     // .post('http://thelogistica.in:4200/vendor', vendor, {})
     // .subscribe();
   }
+  updateDriver(data): Observable<any>{
+    // let data1= {
+    //   "id" : "1",
+    //   "name" : "rajjjjj",
+    //   "gender" : "1",
+    //   "dob" : "12345678",
+    //   "licence_no" : "444444",
+    //   "licence_number" : "444444",
+    //   "aadhar_no" : "444444",
+    //   "aadhar_number" : "444444",
+    //   "status" : "1",
+    //   "city" : "1",
+    //   "email" : "rajjjjjjja@gmail.com",
+    //   "vendor_id" : ""
+    // }
+    return this.http.post('http://thelogistica.in:4000/driverupdate', data)
+      .map((driver: Response) => driver)
+  }
   constructor(public http: HttpClient) { }
   getDrivers(): Observable<any>{
     let data = {

@@ -5,7 +5,7 @@
         <h2>Transaction details</h2>
       </nb-card-header>
       <nb-card-body>
-        <div>
+        <div *ngIf="data">
             <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="row">
                 <div class="col-md-4 col-sm-12 form-group ">
@@ -16,16 +16,16 @@
                   <label for="phone" class="control-label">Transaction Number</label>
                   <h5>{{data.transaction_number}}</h5>
                 </div>
-                <div class="col-md-4 col-sm-12 form-group  fixheight">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                <div class="col-md-4 col-sm-12 form-group  fixheight" *ngIf="data.order_id">
+                  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                   <label for="email" class="control-label">User</label>
                   <h5>{{data.order_id.user.name}}</h5>
                 </div>
               </div>
             </div>
-            <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="col-md-12 col-lg-12 col-sm-12" *ngIf="data.order_id">
               <div class="row">
-                <div class="col-md-4 col-sm-12 form-group ">
+                <div class="col-md-4 col-sm-12 form-group" >
                   <i class="fa fa-car" aria-hidden="true"></i>
                   <label for="password" class="control-label">Driver</label>                  
                   <h5>{{data.order_id.driver.name}}</h5>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="row">
-                <div class="col-md-4 col-sm-12 form-group fixheight">
+                <div class="col-md-4 col-sm-12 form-group fixheight" *ngIf="data.transaction_type && data.transaction_details_id && data.transaction_details">
                     <i class="fa fa-money" aria-hidden="true"></i>
                   <label for="gst" class="control-label">Transaction Type</label>
                   <h5>{{data.transaction_type_id.name}}</h5>
@@ -64,7 +64,7 @@
             </div>
             <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="row">
-                <div class="col-md-4 col-sm-12 form-group paddingfixheight">
+                <div class="col-md-4 col-sm-12 form-group paddingfixheight" *ngIf="data.order_id && data.transaction_type  && data.transaction_details">
                     <i class="fa fa-address-book" aria-hidden="true"></i>
                   <label for="gender" class="control-label">Bank Account Number</label>
                   <h5>{{data.transaction_details_id.bank_account_number}}</h5>
@@ -80,7 +80,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="col-md-12 col-lg-12 col-sm-12" *ngIf="data.transaction_details && data.status">
               <div class="row">
                 <div class="col-md-4 col-sm-12 form-group fixheight">
                     <i class="fa fa-percent" aria-hidden="true"></i>

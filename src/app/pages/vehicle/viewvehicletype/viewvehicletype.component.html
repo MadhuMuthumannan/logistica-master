@@ -1,0 +1,59 @@
+<!-- <nb-card>
+    <nb-card-header>
+      <h2>View Vehicles</h2>
+    </nb-card-header>
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    </nb-card-body>
+  </nb-card> -->
+
+  <nb-card>
+      <nb-card-header>
+        <h2>Vehicle Types List</h2>
+        <!-- <ul *ngFor="let datas of data">
+            <li >{{datas.city_id.title}}</li>
+        </ul> -->
+    
+      </nb-card-header>
+      <nb-card-body>
+        <div class="table-responsive col-md-12" style="padding-left:0px; padding-right:0px;">
+          <table class="table table-hover">
+            <thead>
+              <tr style="white-space:nowrap;">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Dimension</th>
+                <th>Capacity</th>
+                <th>Status</th>
+                <th colspan="2" style="text-align: center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let datas of data">
+                <td>
+                  {{datas.id}}
+                </td>
+                <td>
+                  {{datas.name}}
+                </td>
+                <td>
+                  {{datas.dimension}}
+                </td>
+                <td>
+                  {{datas.capacity}}
+                </td>
+                <td>
+                  {{datas.status.title}}
+                </td>
+                <td style="text-align: center">
+                  <button type="button" class="btn btn-primary btn-sm" id="{{datas.id}}" [routerLink]="['/vehicletype/'+datas.id]">Edit</button>
+                </td>
+                <td style="text-align: center">
+                  <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </nb-card-body>
+    </nb-card>

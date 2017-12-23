@@ -12,26 +12,42 @@ import 'rxjs/add/operator/toPromise';
   providers: [VehicleService],
 })
 export class VehicletypeComponent implements OnInit {
+  public title : string;
+  public ifImage : boolean;
   private data:any = {
     "name":'',
     "status":'Active',
-    "id":'',
     "dimension":'',
     "capacity":'',
-    "uuid" : "2468789",
-    "system_info" : "bhjbc"
+    "id": ''
   }
   private error : any ={
     "name":false,
     "status":false,
-    "id":false,
     "dimension":false,
     "capacity":false,
-    "uuid" : false,
-    "system_info" :false
   }
-  constructor(public VehicleService:VehicleService) { }
+  addVehicleType(){
+    console.log("addVehicleType function called in component");
+    console.log(this.data); 
+    //this.VehicleService.newVehicle(this.data); 
+    this.VehicleService.newVehicleType(this.data).subscribe(vehicleType => { 
+      console.log(vehicleType);            
+    });
+  }
+
+
+  constructor(public VehicleService:VehicleService,public router:Router ,public route: ActivatedRoute) { }
   
+  
+  ifChecked(){
+    if(this.data.status==true){
+      this.data.status="1";
+    }
+    else{
+      this.data.status="0";
+    }
+  }
   vehicleType(){  
     console.log("add user function");
     console.log(this.data);
@@ -42,7 +58,9 @@ export class VehicletypeComponent implements OnInit {
       // this.data.capacity="Active";
       // this.data.dimension = "120 / 124";
       // this.data.status = "Active";
+      
       console.log(this.data);
+      this.VehicleService.newVehicleType(this.data);
     }
        
     
@@ -90,6 +108,41 @@ export class VehicletypeComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
+    var id = this.route.params.subscribe(params => {
+      var id = params['id'];
+      if(id){
+        console.log(id)
+      }      
+      this.title = id ? 'Edit Vehicle' : 'New Vehicle';
+
+      if (!id)
+        return;
+      else{
+        this.ifImage = true;
+        console.log("this is edit vehicletype page");
+        this.VehicleService.getVehicleType(id).subscribe(vehicletype => { 
+          console.log(vehicletype);      
+          this.data=vehicletype;  
+        });
+      }
+        
+      // this.VehicleService.getVehicle(this.id)
+      //   .subscribe(
+      //     vehicle =>  vehicle,
+      //     response => {
+      //       if (response.status == 404) {
+      //         this.router.navigate(['vehicle/viewvehicle']);
+      //       }
+      //     });
+    });
+
+  // ngAfterViewInit() {
+  //   (<any>$('.date-own') ).datepicker({
+  //     minViewMode: 2,
+  //     format: 'yyyy'
+  //   });
+  //}
+ 
+}
 
 }

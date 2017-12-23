@@ -17,6 +17,7 @@ export class EditvendorComponent implements OnInit {
   private imageData:any = [];
   public id: string;
   private data:any = [];
+  public activeInactive = "";
   private error : any ={
     "name":false,
     "gender":false,
@@ -60,7 +61,15 @@ export class EditvendorComponent implements OnInit {
     this.readThis($event.target);
   }
  
- 
+  ifChecked(event){
+    if(event.target.checked){
+      this.activeInactive = "1";
+    }
+    else{
+      this.activeInactive = "0";
+    }
+     
+  }
   checkValidation(){
   this.error.age=false;
   this.error.agency=false;

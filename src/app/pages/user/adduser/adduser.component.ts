@@ -70,23 +70,20 @@ public model: any = {  };
     //private _flashMessagesService: FlashMessagesService
   ) {}
 
-  addUser(){  
-    console.log("add user function");
-    console.log(this.data.status);
-    if(this.checkValidation())
-    {
-      this.data.city = "1";
+
+  addUser(){
+    this.data.city = "1";
       this.data.country = "1";
       this.data.status="Active";
       this.data.dob = parseInt(this.data.dateofbirth.epoc);
-      // console.log("dateofbirth:"+this.data.dob);
-      // console.log("dateofbirth.epoc:"+this.data.dateofbirth.epoc);
-      // console.log(this.data);
-      this.UserService.newUser(this.data); 
-      //this._flashMessagesService.show('Success!', { cssClass: 'alert-success' } );   
-      this.data=[];
+      if(this.checkValidation())
+    {
+      this.UserService.newUser(this.data).subscribe(user => { 
+        console.log(user);            
+      });
     }
-       
+    //this.VehicleService.newVehicle(this.data); 
+    
   }
 
   
@@ -137,11 +134,11 @@ public model: any = {  };
     flag = false;
   }
   //password must contain atleast one character
-  if(this.data.password == null || this.data.password == "" || !(/[a-z+]+[0-9+]+[&@!#+]+/).test(this.data.password))
-  {
-    this.error.password = true;
-    flag = false;
-  }
+  // if(this.data.password == null || this.data.password == "" || !(/[a-z+]+[0-9+]+[&@!#+]+/).test(this.data.password))
+  // {
+  //   this.error.password = true;
+  //   flag = false;
+  // }
   if(this.data.gender == null || this.data.gender == "")
   {
     this.error.gender = true;
@@ -167,12 +164,12 @@ public model: any = {  };
   ngOnInit() {
     console.log(this.uuid);
 
-    this.UserService.getUsers().subscribe(user => { 
-      this.data=user.response;
-      console.log(user.response);
-      console.log("country: "+user.response[0].city_id.country_id.title);
-      console.log("city: "+user.response[0].city_id.country_id.title);
-    });
+    // this.UserService.getUsers().subscribe(user => { 
+    //   this.data=user.response;
+    //   console.log(user.response);
+    //   console.log("country: "+user.response[0].city_id.country_id.title);
+    //   console.log("city: "+user.response[0].city_id.country_id.title);
+    // });
 
     
       this.UserService.getCityList().subscribe(city => { 

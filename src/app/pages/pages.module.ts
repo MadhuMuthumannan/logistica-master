@@ -41,6 +41,7 @@ import { VehicletypeComponent } from './vehicle/vehicletype/vehicletype.componen
 import { TransactionviewComponent } from './transaction/transactionview/transactionview.component';
 import { TransactionlistviewComponent } from './transaction/transactionlistview/transactionlistview.component';
 import { SessionComponent } from './session/session/session.component';
+import { ViewvehicletypeComponent } from './vehicle/viewvehicletype/viewvehicletype.component';
 
 //import { UserComponent } from './user/user.component';
 
@@ -95,7 +96,8 @@ const PAGES_COMPONENTS = [
     VehicletypeComponent,
     TransactionviewComponent,
     TransactionlistviewComponent,
-    SessionComponent,     
+    SessionComponent,
+    ViewvehicletypeComponent,     
   ],
 })
 export class PagesModule {

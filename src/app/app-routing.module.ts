@@ -11,6 +11,8 @@ import {
 import { EdituserComponent } from './pages/user/edituser/edituser.component';
 import { EditvendorComponent } from './pages/vendor/editvendor/editvendor.component';
 import { EditdriverComponent } from './pages/driver/editdriver/editdriver.component';
+import { AddvehicleComponent } from './pages/vehicle/addvehicle/addvehicle.component';
+import { VehicletypeComponent } from './pages/vehicle/vehicletype/vehicletype.component';
 import { PagesComponent } from "./pages/pages.component";
 
 const routes: Routes = [
@@ -49,6 +51,10 @@ const routes: Routes = [
   // { path: 'edituser/:id', component: EdituserComponent },
   { path: 'edituser/:id', redirectTo: 'pages/user/edituser/:id' }, 
   { path: 'pages/user/edituser/:id', component: EdituserComponent },
+  { path: 'editvehicle/:id', redirectTo: 'pages/vehicle/editvehicle/:id' }, 
+  { path: 'pages/vehicle/editvehicle/:id', component: AddvehicleComponent },
+  { path: 'vehicletype/:id', redirectTo: 'pages/vehicle/vehicletype/:id' }, 
+  { path: 'pages/vehicle/vehicletype/:id', component: VehicletypeComponent },
   { path: 'editvendor/:id', redirectTo: 'pages/vendor/editvendor/:id' }, 
   { path: 'pages/vendor/editvendor/:id', component: EditvendorComponent },
   { path: 'editdriver/:id', redirectTo: 'pages/driver/editdriver/:id' }, 

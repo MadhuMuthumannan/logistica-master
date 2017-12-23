@@ -3,7 +3,7 @@
     <nb-card>
       <nb-card-header>
        
-            <h2>Edit User</h2>
+            <h2>Add User</h2>
          
       </nb-card-header>
       <nb-card-body>
@@ -50,11 +50,11 @@
                 name="password"
                 placeholder="Password" 
                 data-error="Please enter a valid email address." required="">
-                  <div *ngIf="error.password" class="help-block with-errors">
+                  <!-- <div *ngIf="error.password" class="help-block with-errors">
                     <ul class="list-unstyled">
                        <li style="color: red">Please enter a valid Password(min 1 character 1 special character and 1 number)</li>
                     </ul>
-                 </div>
+                 </div> -->
              </div>
                </div>
               </div>
@@ -71,7 +71,7 @@
                       minlength="10"
                       maxlength="10"
                       data-error="Please enter a valid email address." required="">
-                      <div *ngIf="error.password" class="help-block with-errors">
+                      <div *ngIf="error.phone" class="help-block with-errors">
                           <ul class="list-unstyled">
                              <li style="color: red">Please enter a valid mobile number</li>
                           </ul>

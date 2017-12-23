@@ -17,6 +17,7 @@ import { ViewdriverComponent } from './driver/viewdriver/viewdriver.component';
 import { AddvehicleComponent } from './vehicle/addvehicle/addvehicle.component';
 import { ViewvehicleComponent } from './vehicle/viewvehicle/viewvehicle.component';
 import { VehicletypeComponent } from './vehicle/vehicletype/vehicletype.component';
+import { ViewvehicletypeComponent } from './vehicle/viewvehicletype/viewvehicletype.component';
 import { AddquotationComponent } from './quotation/addquotation/addquotation.component';
 import { ViewquotationComponent } from './quotation/viewquotation/viewquotation.component';
 import { AddorderComponent } from './order/addorder/addorder.component';
@@ -99,11 +100,23 @@ const routes: Routes = [{
     component: AddvehicleComponent,
   },
   {
+    path: 'vehicle/editvehicle/:id',
+    component: AddvehicleComponent,
+  },
+  {
     path: 'vehicle/viewvehicle',
     component: ViewvehicleComponent,
   },
   {
     path: 'vehicle/vehicletype',
+    component: VehicletypeComponent,
+  },
+  {
+    path: 'vehicle/viewvehicletype',
+    component: ViewvehicletypeComponent,
+  },
+  {
+    path: 'vehicle/vehicletype/:id',
     component: VehicletypeComponent,
   },
   {

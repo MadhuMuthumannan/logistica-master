@@ -13,7 +13,7 @@
                   <div class="row">
                     <h3>Vendor Image:</h3>                    
                   </div>
-                  <div>
+                  <div *ngIf="data.image_id">
                       <img src="{{data.image_id.image}}" alt="" width="120px" height="120px">                 
                   </div>
                 </div><br><br>

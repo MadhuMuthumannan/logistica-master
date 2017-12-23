@@ -30,6 +30,7 @@ export class EdituserComponent implements OnInit {
   public currentAgeYear: number;
   public id: string;
   public activeInactive: number;
+  public data: any = {};
   changeListener($event) : void {
     this.readThis($event.target);
   }
@@ -64,7 +65,7 @@ export class EdituserComponent implements OnInit {
   }
 
   
-  data={};
+ 
   country = [];
   city = [];
   ifChecked(event){
@@ -105,6 +106,7 @@ export class EdituserComponent implements OnInit {
       this.data=user;
        this.country.push({label :user.country_id.title,value:user.country_id.id});
        this.city.push({label :user.city_id.title,value:user.city_id.id});
+       this.data.status= user.status.title;
       if(user.gender==0){
         this.genderr= "Male";
       }
