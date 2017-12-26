@@ -6,7 +6,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   template: `
     <div class="modal-header">
       <span>{{ modalHeader }}</span>
-      <button class="close" aria-label="Close" (click)="closeModal()">
+      <button class="close" aria-label="Close" (click)="closeAddress()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -14,7 +14,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
       {{ modalContent }}
     </div>
     <div class="modal-footer">
-      <button class="btn btn-md btn-primary" (click)="closeModal()">Save changes</button>
+      <button class="btn btn-md btn-primary" (click)="closeAddress()">Save changes</button>
     </div>
   `,
 })
@@ -27,7 +27,7 @@ export class ModalComponent {
 
   constructor(private activeModal: NgbActiveModal) { }
 
-  closeModal() {
+  closeAddress() {
     this.activeModal.close();
   }
 }

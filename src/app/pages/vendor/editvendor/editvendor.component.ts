@@ -18,6 +18,8 @@ export class EditvendorComponent implements OnInit {
   public id: string;
   private data:any = [];
   public activeInactive = "";
+  public addressModal : boolean = true;
+  public bankModal : boolean = true;
   private error : any ={
     "name":false,
     "gender":false,
@@ -70,6 +72,33 @@ export class EditvendorComponent implements OnInit {
     }
      
   }
+
+  openAddress(){
+    console.log("open modal clicked");
+    this.addressModal = false;
+    //this.bankModal = true;
+    console.log(this.addressModal);
+  }
+
+  closeAddress(){
+    console.log("close modal clicked");
+    this.addressModal = true;
+    //this.bankModal = false;
+    console.log(this.addressModal);
+  }
+
+  openBank(){
+      this.bankModal = false;
+      //this.addressModal = true;
+      console.log(this.bankModal);
+  }
+
+ closeBank(){
+  this.bankModal = true;
+  //this.addressModal = false;
+  console.log(this.bankModal);
+  }
+
   checkValidation(){
   this.error.age=false;
   this.error.agency=false;
@@ -197,7 +226,7 @@ export class EditvendorComponent implements OnInit {
   }
   console.log(this.error);  
   return flag;
-  }
+  } 
 
   updateVendor(){  
     console.log("update vendor function");
