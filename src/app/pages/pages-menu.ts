@@ -176,6 +176,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
       ],
     },
     {
+      title: 'Request Management',
+      icon: 'nb-email',
+      link: '/pages/request',
+      children: [
+        {
+          title: 'Add Request',
+          link: '/pages/request/addrequest',
+        }, {
+          title: 'View Invoice',
+          link: '/pages/invoice/viewinvoice',
+        },
+      ],
+    },
+    {
       title: 'Ticket Management',
       icon: 'ion-document-text',
       link: '/pages/ticket',

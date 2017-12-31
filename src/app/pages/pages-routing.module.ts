@@ -34,6 +34,7 @@ import { ViewnotificationsComponent } from './notifications/viewnotifications/vi
 import { TransactionviewComponent } from './transaction/transactionview/transactionview.component';
 import { TransactionlistviewComponent } from './transaction/transactionlistview/transactionlistview.component';
 import { SessionComponent } from './session/session/session.component';
+import { RequestaddComponent } from './request/requestadd/requestadd.component';
 
 
 const routes: Routes = [{
@@ -162,6 +163,10 @@ const routes: Routes = [{
   {
     path: 'invoice/viewinvoice',
     component: ViewinvoiceComponent,
+  },
+  {
+    path: 'request/addrequest',
+    component: RequestaddComponent,
   },
   {
     path: 'ticket/addticket',

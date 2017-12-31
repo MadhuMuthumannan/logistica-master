@@ -1,0 +1,199 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 col-sm-12">
+    <nb-card>
+      <nb-card-header>
+        <h2>Add New Request</h2>
+      </nb-card-header>
+      <nb-card-body>
+        <div>
+          <form>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group ">
+                  <label for="reqNumber" class="control-label">Request Number</label>
+                  <input type="text" class="form-control" [(ngModel)]="request.reqNumber" name="agency" id="reqNumber" placeholder="reqNumber" data-error=""
+                    required="">
+                  <!-- <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a valid Name</li>
+                       </ul>
+                    </div> -->
+                </div>
+                <div class="col-md-4 col-sm-12 form-group  ">
+                  <label for="mobile" class="control-label">User</label>
+                  <ng-select [options]="userList" [(ngModel)]="request.userList" name="userList" id="userList">
+                  </ng-select>
+                  <!-- <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Mobile No</li>
+                       </ul>
+                    </div> -->
+                </div>
+                <div class="col-md-4 col-sm-12 form-group  fixheight">
+                  <label for="email" class="control-label">Pick Up Point</label>
+                  <input type="text" class="form-control" id="pickUp" [(ngModel)]="request.pickUp" name="pickUp" placeholder="pickUp" data-error="Please enter a valid email address."
+                    required="">
+                  <!-- <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Email Id</li>
+                       </ul>
+                    </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group ">
+                  <label for="dropPoint" class="control-label">Drop Point</label>
+                  <input type="dropPoint" class="form-control" id="dropPoint" [(ngModel)]="request.dropPoint" name="dropPoint" placeholder="dropPoint"
+                    data-error="Please enter a valid email address." required="">
+                  <!-- <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a valid Password</li>
+                       </ul>
+                    </div> -->
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="agency" class="control-label">Vehicle Type</label>
+                  <ng-select [options]="userList" [(ngModel)]="request.vehicleType" name="userList" id="userList">
+                  </ng-select>
+                  <!-- <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Agency Name</li>
+                       </ul>
+                    </div> -->
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="pan" class="control-label">Vehicle Rate Type</label>
+                  <ng-select [options]="userList" [(ngModel)]="request.vehicleRateType" name="userList" id="userList">
+                  </ng-select>
+                  <!-- <div class="help-block with-errors">
+                       <ul class="list-unstyled">
+                          <li>Please enter a Pan Number</li>
+                       </ul>
+                    </div> -->
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="gst" class="control-label">Driver</label>
+                  <ng-select [options]="userList" [(ngModel)]="request.driverList" name="userList" id="userList">
+                  </ng-select>
+                  <!-- <div class="help-block with-errors">
+                               <ul class="list-unstyled">
+                                  <li>Please enter a GST Number</li>
+                               </ul>
+                            </div> -->
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="tin" class="control-label">Driver As Helper</label>
+                    <select id="helper" class="custom-select" [(ngModel)]="request.helper" name="helper" data-error="This field is required." required="">
+                      <option value="" selected="selected">Choose Yes / No</option>
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                    <!-- <div class="help-block with-errors">
+                               <ul class="list-unstyled">
+                                  <li>Please enter a TIN Number</li>
+                               </ul>
+                            </div> -->
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="helperCount" class="control-label">Helper Count</label>
+                  <input type="text" class="form-control" id="helperCount" [(ngModel)]="request.helperCount" name="helperCount" placeholder="helperCount"
+                    data-error="Please enter a valid email address." required="">
+                  <!-- <div class="help-block with-errors">
+                               <ul class="list-unstyled">
+                                  <li>Please enter a VAT Number</li>
+                               </ul>
+                            </div> -->
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="duration" class="control-label">Duration</label>
+                  <input type="text" class="form-control" id="duration" [(ngModel)]="request.duration" name="duration" placeholder="duration" data-error="Please enter a valid email address."
+                    required="">
+                </div>
+                <div class="col-md-4 col-sm-12 form-group form-group ">
+                  <label for="address" class="control-label">Live Tracking</label>
+                  <textarea id="address" [(ngModel)]="request.address" name="address" class="form-control" rows="3" data-error="This field is required."
+                    required=""></textarea>
+                </div>
+                <div class="col-md-4 col-sm-12 form-group fixheight">
+                  <label for="status" class="control-label">Status</label>
+                  <br>
+                  <select id="status" class="custom-select" [(ngModel)]="request.status" name="status" data-error="This field is required." required="">
+                    <option value="" selected="selected">Choose Active / Deactive</option>
+                    <option value="1">Active</option>
+                    <option value="2">Deactive</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 form-group">
+              <div class="row">
+                <div class="col-sm-6 " style="margin-bottom:5px;">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary btn-block" (click)="reqSubmit()">Submit</button>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-danger btn-block ">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <div class="site-footer">
+          2017 © Logistica. Powered By
+          <a href="http://wooftec.com/" target="_blank">wooftec</a>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+
+  <style>
+    label {
+      color: #000000 !important;
+    }
+
+    .form-control {
+      padding: 0.35rem;
+      border: 1px solid #ced4da;
+    }
+
+    .form-group {
+      padding-bottom: 20px;
+    }
+
+    .custom-select {
+      border-color: 2px solid #ccccb3 !important;
+    }
+
+    .nb-theme-default .input-group-addon,
+    .nb-theme-default .form-control {
+      border: none !important;
+    }
+
+    .help-block {
+      color: #868e96 !important;
+    }
+
+    select {
+      width: 100%;
+    }
+
+  </style>
